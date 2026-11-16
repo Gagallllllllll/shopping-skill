@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 ![Claude Code skill](https://img.shields.io/badge/Claude%20Code-skill-orange)
-![Version](https://img.shields.io/badge/version-1.8.1-green)
+![Version](https://img.shields.io/badge/version-1.8.2-green)
 
 **sport** turns [Claude Code](https://docs.claude.com/en/docs/claude-code) into an expert from a specialist sports shop, with a research team behind it.
 
@@ -144,6 +144,7 @@ const DATA = {
           stCh: "n",                     // optional: different status for the Swiss total
           out: false,                    // true = out of stock (shown greyed, never "best")
           sizeOk: true,                  // false = the client's size is not confirmed (never "best")
+          ref: false,                    // true = brand list price for reference, not a shop offer
           url: "https://..." }
       ]
     }

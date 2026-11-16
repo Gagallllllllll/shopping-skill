@@ -2,6 +2,9 @@
 
 All notable changes to this skill. Newest first.
 
+## 1.8.2 (2026-11-16)
+- Rule: every item gets its own deals pass before it enters the buying sheets. Brand list prices are marked `ref: true` and never shown as a place to buy.
+
 ## 1.8.1 (2026-11-16)
 - Buying sheets: offers with the client's size not confirmed (`sizeOk: false`) never count as best or in the total; the model switch is larger and labelled.
 

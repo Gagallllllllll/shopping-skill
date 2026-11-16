@@ -198,10 +198,10 @@ const chosen = () => opt().items.map((s,si)=>pickOf(s,si));
 const condOf = id => (state.cond[state.opt]||{})[id] || opt().def[id];
 function sorted(item, cond, cty){
   const list = item.offers.filter(o=>o.c===cond);
-  const val = o => o.out ? Infinity : (o[cty]==null ? 1e9 : (o.sizeOk===false ? 1e8 + o[cty] : o[cty]));
+  const val = o => o.out ? Infinity : (o[cty]==null ? 1e9 : ((o.sizeOk===false || o.ref) ? 1e8 + o[cty] : o[cty]));
   return list.slice().sort((a,b)=>val(a)-val(b));
 }
-function best(item, cond, cty){ return sorted(item,cond,cty).find(o => !o.out && o[cty]!=null && o.sizeOk!==false) || null; }
+function best(item, cond, cty){ return sorted(item,cond,cty).find(o => !o.out && !o.ref && o[cty]!=null && o.sizeOk!==false) || null; }
 function stFor(o,cty){ return (cty==="ch" && o.stCh) ? o.stCh : o.st; }
 const stLabel = s => s==="v" ? '<span class="st v">verified</span>' : '<span class="st n">not confirmed</span>';
 
@@ -221,7 +221,7 @@ function renderSummary(){
       <div><div class="kind">${it.kind}</div><div class="name">${esc(it.name)} · ${esc(it.size)}</div>${models}</div>
       <div class="seg" role="group" aria-label="${esc(it.name)} condition">
         <button type="button" data-i="${id}" data-k="new" aria-pressed="${cond==="new"}">New</button><button type="button" data-i="${id}" data-k="used" aria-pressed="${cond==="used"}">Second-hand</button></div>
-      <div class="best">${b ? `Best: <strong>${esc(b.site)}</strong> · ${esc(b.note)}` : "No offer found for this choice and country"} · <a class="jump" href="#sheet-${id}">full sheet</a></div>
+      <div class="best">${b ? `Best: <strong>${esc(b.site)}</strong> · ${esc(b.note)}` : "No shop offer found yet for this choice and country"} · <a class="jump" href="#sheet-${id}">full sheet</a></div>
       <div class="price num">${b ? fmt(b[cty],cty) : "–"}</div></div>`;
   }).join("");
   const tEl = document.getElementById("total");
@@ -242,10 +242,10 @@ function renderSheets(){
     const adv = it.advice[cond==="new"?"now":"used"];
     const advLbl = {now:"Buy now", wait:"Wait", na:"Not available"}[adv[0]];
     const rowsHtml = list.length ? list.map(x=>{
-      const v = x[cty], isTop = b && x===b, dim = x.out || v==null || x.sizeOk===false;
+      const v = x[cty], isTop = b && x===b, dim = x.out || v==null || x.sizeOk===false || x.ref;
       return `<tr class="${isTop?"top":""} ${dim?"dim":""}">
         <td><strong>${esc(x.site)}</strong>${isTop?'<span class="tag">Best</span>':""}<br><span style="color:var(--muted)">${esc(x.ctry)}</span></td>
-        <td>${esc(x.note)}${x.sizeOk===false?'<br><span class="st n">your size not confirmed: not counted as best</span>':""}</td>
+        <td>${esc(x.note)}${x.ref?'<br><span class="st n">reference price, not a shop offer</span>':""}${x.sizeOk===false?'<br><span class="st n">your size not confirmed: not counted as best</span>':""}</td>
         <td class="money">${esc(x.price)}</td>
         <td>${esc(x.ship||"")}</td>
         <td class="money landed">${x.out ? "out of stock" : (v==null ? (cty==="fr"?"no FR price":"no CH price") : fmt(v,cty))}${cty==="ch"&&x.chNote&&v!=null?`<br><span style="font-weight:400;color:var(--muted);font-family:var(--body);font-size:12px">${esc(x.chNote)}</span>`:""}</td>
