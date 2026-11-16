@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 ![Claude Code skill](https://img.shields.io/badge/Claude%20Code-skill-orange)
-![Version](https://img.shields.io/badge/version-1.9.1-green)
+![Version](https://img.shields.io/badge/version-1.10.0-green)
 
 **sport** turns [Claude Code](https://docs.claude.com/en/docs/claude-code) into an expert from a specialist sports shop, with a research team behind it.
 
@@ -93,7 +93,7 @@ An interactive page, opened in Claude after you choose an option:
 
 | Feature | What it does |
 |---|---|
-| **Option picker** | Switch between the shortlist options. |
+| **Option picker** | Switch between the shortlist options. Once you pick exact listings, a **Your picks** option tracks them. |
 | **Delivery country switch** | For example *France €* / *Switzerland CHF*. Every total and the order of the offers change with it. |
 | **Model switch** | Where the shortlist has alternatives (for example classic straps or quick-entry bindings), switch the model inside the set. |
 | **New / Second-hand per item** | For example a used board, used bindings and new boots. The set total updates live against your budget. |

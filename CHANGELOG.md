@@ -2,6 +2,10 @@
 
 All notable changes to this skill. Newest first.
 
+## 1.10.0 (2026-11-16)
+- Buying sheets: a "Your picks" option, added first once the client chooses exact listings, with per-item checklist and fallback.
+- First full real session completed (snowboard park set): interview, research, deals, Deep search, second-hand alternatives, seller messages.
+
 ## 1.9.1 (2026-11-16)
 - Deals: check the same shop's other country sites (prices and shipping differ).
 

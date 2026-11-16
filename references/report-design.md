@@ -28,7 +28,8 @@ When the client picks an option, build a second interactive page, "buying sheets
    - **Before you buy:** checklist for new (returns, size, sale end) or second-hand (condition checks, fair price range, scam signs).
    - Blocked sites: a ready-made search link per site.
 4. **Printable:** `@media print` puts one item sheet per page, hides switches and picker, shows the chosen condition and links as text.
-5. Choices persist per viewer in `localStorage` (wrapped in try/catch); the page renders fully without it.
+5. **Your picks:** once the client names the exact listings or offers they are going for, add a "Your picks" option first in the picker, pre-set to those items and conditions, with fallbacks kept in the model switch. Give the client a short checklist per item and a fallback per item in the chat.
+6. Choices persist per viewer in `localStorage` (wrapped in try/catch); the page renders fully without it.
 
 Start from `templates/buying-sheets.html`: fill the `DATA` object (items, offers with `fr`/`ch` landed prices, options with default conditions, checklists), the deadlines and the blocked-site links. Add or rename the country switch buttons for the client's delivery countries. **No item enters the buying sheets without its own deals pass (new and second-hand).** If the client adds an item late (a new model or alternative), run the deals agent for it first. A brand list price is marked `ref: true`: shown as a reference, never as a place to buy, never in the total. Offer data lives in that one object so the next run can refresh prices without redesigning.
 
