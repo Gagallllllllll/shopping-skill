@@ -48,8 +48,11 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .ctl{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .ctl .eyebrow{font-size:11px}
 .optseg{flex-wrap:wrap}
-.models{margin-top:8px;flex-wrap:wrap}
-.models button{font-size:12.5px;padding:6px 10px}
+.pickmodel{margin-top:10px;display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:8px 10px;border:1.5px solid var(--accent);border-radius:8px;background:var(--accent-soft)}
+.pickmodel span{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:500}
+.models{flex-wrap:wrap}
+.models button{font-size:13px;padding:7px 12px}
+.models button[aria-pressed="true"]{background:var(--accent);color:#fff}
 /* alerts */
 .deadlines{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
 .dl{background:var(--accent-soft);border:1px solid var(--accent);border-radius:8px;padding:10px 14px;font-size:13.5px;display:grid;gap:2px}
@@ -195,10 +198,10 @@ const chosen = () => opt().items.map((s,si)=>pickOf(s,si));
 const condOf = id => (state.cond[state.opt]||{})[id] || opt().def[id];
 function sorted(item, cond, cty){
   const list = item.offers.filter(o=>o.c===cond);
-  const val = o => o.out ? Infinity : (o[cty]==null ? 1e9 : o[cty]);
+  const val = o => o.out ? Infinity : (o[cty]==null ? 1e9 : (o.sizeOk===false ? 1e8 + o[cty] : o[cty]));
   return list.slice().sort((a,b)=>val(a)-val(b));
 }
-function best(item, cond, cty){ const o = sorted(item,cond,cty)[0]; return o && !o.out && o[cty]!=null ? o : null; }
+function best(item, cond, cty){ return sorted(item,cond,cty).find(o => !o.out && o[cty]!=null && o.sizeOk!==false) || null; }
 function stFor(o,cty){ return (cty==="ch" && o.stCh) ? o.stCh : o.st; }
 const stLabel = s => s==="v" ? '<span class="st v">verified</span>' : '<span class="st n">not confirmed</span>';
 
@@ -212,7 +215,7 @@ function renderSummary(){
   document.getElementById("sumOpt").textContent = o.label + " · delivered to " + (cty==="fr"?"France":"Switzerland");
   document.getElementById("rows").innerHTML = o.items.map((slot,si)=>{
     const id = pickOf(slot,si), it = DATA.items[id], cond = condOf(id), b = best(it,cond,cty);
-    const models = Array.isArray(slot) ? `<div class="seg models" role="group" aria-label="${esc(it.kind)} model">${slot.map(m=>`<button type="button" data-s="${si}" data-m="${m}" aria-pressed="${m===id}">${esc(DATA.items[m].short||DATA.items[m].name)}</button>`).join("")}</div>` : "";
+    const models = Array.isArray(slot) ? `<div class="pickmodel"><span>Choose your ${esc(it.kind.split(" ")[0].toLowerCase())}:</span><div class="seg models" role="group" aria-label="${esc(it.kind)} model">${slot.map(m=>`<button type="button" data-s="${si}" data-m="${m}" aria-pressed="${m===id}">${esc(DATA.items[m].short||DATA.items[m].name)}</button>`).join("")}</div></div>` : "";
     if(b){ total += b[cty]; if(stFor(b,cty)!=="v") unconf++; } else missing++;
     return `<div class="row">
       <div><div class="kind">${it.kind}</div><div class="name">${esc(it.name)} · ${esc(it.size)}</div>${models}</div>
@@ -239,10 +242,10 @@ function renderSheets(){
     const adv = it.advice[cond==="new"?"now":"used"];
     const advLbl = {now:"Buy now", wait:"Wait", na:"Not available"}[adv[0]];
     const rowsHtml = list.length ? list.map(x=>{
-      const v = x[cty], isTop = b && x===b, dim = x.out || v==null;
+      const v = x[cty], isTop = b && x===b, dim = x.out || v==null || x.sizeOk===false;
       return `<tr class="${isTop?"top":""} ${dim?"dim":""}">
         <td><strong>${esc(x.site)}</strong>${isTop?'<span class="tag">Best</span>':""}<br><span style="color:var(--muted)">${esc(x.ctry)}</span></td>
-        <td>${esc(x.note)}${x.out?" ":""}</td>
+        <td>${esc(x.note)}${x.sizeOk===false?'<br><span class="st n">your size not confirmed: not counted as best</span>':""}</td>
         <td class="money">${esc(x.price)}</td>
         <td>${esc(x.ship||"")}</td>
         <td class="money landed">${x.out ? "out of stock" : (v==null ? (cty==="fr"?"no FR price":"no CH price") : fmt(v,cty))}${cty==="ch"&&x.chNote&&v!=null?`<br><span style="font-weight:400;color:var(--muted);font-family:var(--body);font-size:12px">${esc(x.chNote)}</span>`:""}</td>

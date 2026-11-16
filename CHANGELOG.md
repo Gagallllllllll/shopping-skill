@@ -2,6 +2,9 @@
 
 All notable changes to this skill. Newest first.
 
+## 1.8.1 (2026-11-16)
+- Buying sheets: offers with the client's size not confirmed (`sizeOk: false`) never count as best or in the total; the model switch is larger and labelled.
+
 ## 1.8.0 (2026-11-16)
 - Buying sheets: alternative models per slot (for example straps or quick-entry bindings) with a model switch inside each set; the sheet and the total follow the choice. Template and README updated.
 

@@ -23,7 +23,7 @@ When the client picks an option, build a second interactive page, "buying sheets
 1. **Option picker:** the shortlist's option cards; selecting one loads its items.
 2. **Set summary:** one row per item with a **New / Second-hand** switch per item (default: boots new). The set total updates live from the best landed offer of each choice and is shown against the budget.
 3. **One sheet per item:**
-   - **Offers by site:** every offer found for the chosen condition, sorted by landed price (price + shipping + VAT/customs for the client's delivery country): site, condition, size in stock, price, shipping, landed total, returns, status chip, link. Best offer highlighted.
+   - **Offers by site:** every offer found for the chosen condition, sorted by landed price (price + shipping + VAT/customs for the client's delivery country): site, condition, size in stock, price, shipping, landed total, returns, status chip, link. Best offer highlighted; an offer whose size is not confirmed for the client never counts as best.
    - **Specs and size:** key specs, recommended size and why it fits the client.
    - **Before you buy:** checklist for new (returns, size, sale end) or second-hand (condition checks, fair price range, scam signs).
    - Blocked sites: a ready-made search link per site.

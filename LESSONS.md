@@ -4,6 +4,7 @@ What real uses of the skill taught us. One entry per lesson, newest first. Gener
 
 Format: `- YYYY-MM-DD · <sport> · <what happened> → <what changed in the skill>`
 
+- 2026-11-16 · all · The set total used a cheap offer whose size was not confirmed, about €130 too optimistic → such offers are shown but never count as best.
 - 2026-11-16 · all · An alternative model shown as a separate option was easy to miss → alternatives now appear as a model switch inside each set.
 - 2026-11-16 · snowboard · The client asked for quick-entry bindings after the boots were chosen; one system needs its own boots → the interview now asks the binding entry type up front.
 - 2026-11-16 · all · Two deals agents kept running background work after delivering their report → stop agents once the report is in.
