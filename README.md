@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 ![Claude Code skill](https://img.shields.io/badge/Claude%20Code-skill-orange)
-![Version](https://img.shields.io/badge/version-1.6.0-green)
+![Version](https://img.shields.io/badge/version-1.7.0-green)
 
 A [Claude Code](https://docs.claude.com/en/docs/claude-code) skill that works like an expert in a specialist sports shop, with a research team behind it. It interviews you, builds your athlete profile, searches the whole web and recommends the gear that fits **you**, not just the best-reviewed product.
 
@@ -57,6 +57,7 @@ references/deals.md       best price and discount method + deals agent brief
 references/report-design.md  layout of the designed report page (option cards, comparison table)
 scripts/shop_fetch.py     optional: read protected shop pages (Scrapling)
 scripts/setup-scrapling.sh  optional: install Scrapling in its own environment
+templates/buying-sheets.html  interactive buying sheets template (fill the DATA object)
 LESSONS.md                lessons from real uses
 CHANGELOG.md              version history
 ```

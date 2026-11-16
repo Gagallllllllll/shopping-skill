@@ -30,7 +30,7 @@ When the client picks an option, build a second interactive page, "buying sheets
 4. **Printable:** `@media print` puts one item sheet per page, hides switches and picker, shows the chosen condition and links as text.
 5. Choices persist per viewer in `localStorage` (wrapped in try/catch); the page renders fully without it.
 
-Offer data lives in one JSON object in the page so the next run can refresh prices without redesigning.
+Start from `templates/buying-sheets.html`: fill the `DATA` object (items, offers with `fr`/`ch` landed prices, options with default conditions, checklists), the deadlines and the blocked-site links. Add or rename the country switch buttons for the client's delivery countries. Offer data lives in that one object so the next run can refresh prices without redesigning.
 
 ## Principles
 

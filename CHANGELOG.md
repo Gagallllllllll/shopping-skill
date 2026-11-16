@@ -2,6 +2,10 @@
 
 All notable changes to this skill. Newest first.
 
+## 1.7.0 (2026-11-16)
+- `templates/buying-sheets.html`: reusable interactive buying sheets (option picker, New / Second-hand per item, delivery country switch, offers sorted by delivered price, specs, checklists, print one sheet per page, choices remembered).
+- Agents are stopped once their report is in.
+
 ## 1.6.0 (2026-11-16)
 - Search budget: 20 tool calls per research agent, 25 per deals agent, stop early once targets are met, comparison sites first, agents run on Sonnet. A first unbudgeted deals run took about 70 tool calls for 2 items.
 

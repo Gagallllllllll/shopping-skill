@@ -75,6 +75,7 @@ Research costs tokens and time; keep every run inside this budget.
 - Prefer pages that give many offers at once (price comparison sites, shop search pages) over opening shops one by one.
 - One deals agent per item category, never more than 3 deals agents per client.
 - If a budget runs out, report partial results with what is missing; never extend the budget without the client's ok.
+- As soon as an agent has delivered its report, stop it (`TaskStop`) if it is still running background work.
 
 ## Rules
 

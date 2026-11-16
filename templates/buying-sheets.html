@@ -1,0 +1,265 @@
+<title>Park Set Buying Sheets</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: control bar (option + country) on top, set summary with per-item switches, then one full sheet per item. Same identity as the shortlist. */
+:root{
+  --snow:#F4F7F9; --surface:#FFFFFF; --sunk:#EEF3F6; --ink:#0F1A22; --muted:#56687A; --line:#D7E1E8;
+  --accent:#D9481A; --accent-soft:#FBE7DE; --ice:#2C6A8F; --ice-soft:#E3EFF6;
+  --ok:#2F7A4B; --warn:#9A6400; --bad:#A3322A;
+  --display:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
+  --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  color-scheme:dark;
+  --snow:#0C1319; --surface:#131E26; --sunk:#0F1820; --ink:#E8EFF3; --muted:#98AAB8; --line:#24333E;
+  --accent:#FF7442; --accent-soft:#3A2016; --ice:#7DB7DA; --ice-soft:#16293A; --ok:#6CC28F; --warn:#E3B04F; --bad:#F08A80;
+}}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --snow:#0C1319; --surface:#131E26; --sunk:#0F1820; --ink:#E8EFF3; --muted:#98AAB8; --line:#24333E;
+  --accent:#FF7442; --accent-soft:#3A2016; --ice:#7DB7DA; --ice-soft:#16293A; --ok:#6CC28F; --warn:#E3B04F; --bad:#F08A80;
+}
+*{box-sizing:border-box}
+body{background:var(--snow);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:36px 64px}
+.wrap{max-width:1120px;margin:0 auto;display:grid;gap:36px}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.05;margin:0;text-wrap:balance}
+h1{font-size:clamp(38px,5.5vw,58px);text-transform:uppercase}
+h2{font-size:30px;text-transform:uppercase;letter-spacing:.02em}
+h3{font-size:20px;text-transform:uppercase;letter-spacing:.03em}
+p{margin:0}
+a{color:var(--ice);text-underline-offset:3px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.num{font-variant-numeric:tabular-nums}
+header{display:grid;gap:12px}
+.lede{max-width:70ch;font-size:16px}
+/* controls */
+.controls{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--snow);padding-block:12px;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;justify-content:space-between}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--snow)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface)}
+.seg button{font:inherit;font-size:13.5px;border:0;background:transparent;color:var(--ink);padding:8px 14px;cursor:pointer;white-space:nowrap}
+.seg button+button{border-left:1px solid var(--line)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--snow);font-weight:600}
+.ctl{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.ctl .eyebrow{font-size:11px}
+.optseg{flex-wrap:wrap}
+/* alerts */
+.deadlines{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
+.dl{background:var(--accent-soft);border:1px solid var(--accent);border-radius:8px;padding:10px 14px;font-size:13.5px;display:grid;gap:2px}
+.dl b{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+/* summary */
+.summary{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px;display:grid;gap:18px}
+.sum-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px}
+.total{font-family:var(--display);font-weight:600;font-size:48px;line-height:1}
+.total small{display:block;font-family:var(--body);font-size:13px;font-weight:400;color:var(--muted);margin-top:6px}
+.budget{display:grid;gap:6px;min-width:min(320px,100%)}
+.bar{height:10px;border-radius:5px;background:var(--line);position:relative;overflow:hidden}
+.bar i{position:absolute;inset:0 auto 0 0;background:var(--ok);border-radius:5px}
+.bar i.over{background:var(--bad)}
+.budget span{font-size:12.5px;color:var(--muted)}
+.rows{display:grid;gap:0;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:minmax(0,1.4fr) auto minmax(0,1.3fr) auto;gap:8px 18px;align-items:center;padding-block:12px;border-bottom:1px solid var(--line)}
+.row .kind{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.row .name{font-weight:600}
+.row .best{font-size:13.5px;color:var(--muted)}
+.row .best strong{color:var(--ink)}
+.row .price{font-family:var(--mono);font-size:15px;text-align:right;white-space:nowrap}
+.row a.jump{font-size:12.5px}
+@media (max-width:720px){.row{grid-template-columns:1fr auto}.row .best{grid-column:1/-1}.row .price{grid-column:2;grid-row:1}}
+/* sheets */
+.sheet{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:24px;display:grid;gap:22px;scroll-margin-top:90px}
+.sheet-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;align-items:flex-start;border-bottom:2px solid var(--ink);padding-bottom:12px}
+.sheet-head .sub{color:var(--muted);font-size:14px;margin-top:6px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-family:var(--mono);font-size:12px;padding:4px 9px;border-radius:6px;background:var(--ice-soft);border:1px solid var(--line)}
+.advice{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:6px;border:1px solid currentColor;white-space:nowrap}
+.advice.now{color:var(--ok)} .advice.wait{color:var(--warn)} .advice.na{color:var(--bad)}
+.advice-text{font-size:14px;max-width:70ch}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;min-width:820px;font-size:13.5px}
+th,td{padding:10px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+thead th{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500;background:var(--sunk)}
+tbody tr:last-child td{border-bottom:0}
+td.money{font-family:var(--mono);white-space:nowrap;text-align:right}
+td.landed{font-weight:600}
+tr.top td{background:var(--accent-soft)}
+tr.top td:first-child{box-shadow:inset 3px 0 0 var(--accent)}
+tr.dim td{color:var(--muted)}
+.tag{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;padding:1px 6px;border-radius:4px;background:var(--accent);color:#fff;margin-left:6px;vertical-align:1px}
+.st{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:11px;white-space:nowrap}
+.st::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.st.v{color:var(--ok)} .st.n{color:var(--warn)} .st.r{color:var(--ice)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.box{display:grid;gap:8px;align-content:start}
+.box ul{margin:0;padding-left:18px;display:grid;gap:6px;font-size:14px}
+.checks{list-style:none;padding-left:0 !important}
+.checks li{display:flex;gap:10px;align-items:flex-start}
+.checks li::before{content:"";flex:none;width:14px;height:14px;margin-top:3px;border:1.5px solid var(--muted);border-radius:3px}
+.links{font-size:13px;display:flex;flex-wrap:wrap;gap:6px 14px}
+.empty{padding:16px;color:var(--muted);font-size:14px}
+footer{color:var(--muted);font-size:12.5px;max-width:85ch;display:grid;gap:6px}
+.printbtn{font:inherit;font-size:13.5px;border:1px solid var(--ink);background:var(--ink);color:var(--snow);border-radius:8px;padding:8px 14px;cursor:pointer}
+.print-only{display:none}
+@media print{
+  :root{--snow:#fff;--surface:#fff;--sunk:#f3f3f3}
+  body{padding:0;font-size:11.5px}
+  .controls,.deadlines,.printbtn,a.jump{display:none !important}
+  .print-only{display:block}
+  .sheet{break-before:page;border:0;padding:0}
+  .summary{border:0;padding:0}
+  .tbl{overflow:visible;border:0}
+  table{min-width:0;font-size:10.5px}
+  a{color:inherit;text-decoration:none}
+  a[href]::after{content:" (" attr(href) ")";font-size:9px;color:#555;word-break:break-all}
+  tr.top td{background:#f6e3da !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+
+<div class="wrap">
+
+<header>
+  <span class="eyebrow"><!-- sport · purchase · date checked --></span>
+  <h1>Your buying sheets</h1>
+  <p class="lede">Pick an option, choose new or second-hand for each item, and switch between delivery to France or Switzerland. Every offer is sorted by its delivered price: item, shipping, VAT and customs.</p>
+</header>
+
+<div class="controls" role="toolbar" aria-label="Choices">
+  <div class="ctl"><span class="eyebrow">Option</span><div class="seg optseg" id="optSeg"></div></div>
+  <div class="ctl"><span class="eyebrow">Deliver to</span><div class="seg" id="ctySeg">
+    <button type="button" data-c="fr" aria-pressed="true">France €</button><button type="button" data-c="ch" aria-pressed="false">Switzerland CHF</button></div></div>
+  <button type="button" class="printbtn" id="printBtn">Print or save PDF</button>
+</div>
+
+<section class="deadlines" aria-label="Deadlines"><!-- one .dl per dated deal: <div class="dl"><b>Ends DATE</b>text</div> --></section>
+
+<section class="summary" aria-labelledby="sumTitle">
+  <div class="sum-head">
+    <div><span class="eyebrow" id="sumOpt"></span><h2 id="sumTitle">Your set</h2></div>
+    <div class="total num" id="total"></div>
+    <div class="budget" id="budget"></div>
+  </div>
+  <div class="rows" id="rows"></div>
+  <p class="print-only" id="printNote"></p>
+</section>
+
+<div id="sheets" style="display:grid;gap:28px"></div>
+
+<footer>
+  <p>Status: <span class="st v">verified</span> seen on the shop or comparison page today · <span class="st n">not confirmed</span> from a comparison site, a snippet, an estimate, or stock not visible.</p>
+  <p>Second-hand totals on Vinted include about 5% buyer protection and typical shipping. Swiss totals include 8.1% VAT and carrier fees when the shop does not prepay them. Prices and stock change fast: confirm on the page before you buy. Nothing was bought or reserved.</p>
+  <p>Blocked during research, check by hand: <!-- search links --></p>
+</footer>
+</div>
+
+<script>
+const DATA = {
+  // TEMPLATE: replace with the client's data. Example values below are placeholders, not real offers.
+  budgetEUR: 1000,
+  items: {
+    itemA: {kind:"Board", name:"Example board", size:"<size>", specs:["<spec>","<spec>"], fit:"<why this size fits the client>",
+      advice:{now:["now","<buy-now or wait reason for new>"], used:["wait","<reason for second-hand>"]},
+      offers:[
+        {c:"new",site:"Example shop",ctry:"FR",note:"<season · stock · returns>",price:"€0",ship:"free",fr:0,ch:null,st:"n",url:"https://example.com"},
+        {c:"used",site:"Example marketplace",ctry:"FR",note:"<size · condition>",price:"€0",ship:"+ fees",fr:0,ch:null,st:"n",url:"https://example.com"}
+      ]}
+  },
+  options: [ {id:"best",label:"Best fit",items:["itemA"],def:{itemA:"new"}} ],
+  checks: {
+    new:["Size in stock on the product page","Return window and who pays return shipping","Sale or code applied in the cart before paying"],
+    used:["Model year and size confirmed with a photo of the label","Pay only inside the platform","Price within the fair range"]
+  }
+};
+
+let state = {opt:"best", cty:"fr", cond:{}};
+try{ const s = JSON.parse(localStorage.getItem("parkset-state")||"null"); if(s) state = Object.assign(state,s); }catch(e){}
+const save = () => { try{ localStorage.setItem("parkset-state", JSON.stringify(state)); }catch(e){} };
+const fmt = (v,c) => v==null ? "–" : (c==="fr" ? "€" + v.toLocaleString("en-GB",{minimumFractionDigits:2,maximumFractionDigits:2}) : "CHF " + v.toLocaleString("en-GB",{minimumFractionDigits:2,maximumFractionDigits:2}));
+const esc = s => String(s).replace(/[&<>"]/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
+const opt = () => DATA.options.find(o=>o.id===state.opt) || DATA.options[0];
+const condOf = id => (state.cond[state.opt]||{})[id] || opt().def[id];
+function sorted(item, cond, cty){
+  const list = item.offers.filter(o=>o.c===cond);
+  const val = o => o.out ? Infinity : (o[cty]==null ? 1e9 : o[cty]);
+  return list.slice().sort((a,b)=>val(a)-val(b));
+}
+function best(item, cond, cty){ const o = sorted(item,cond,cty)[0]; return o && !o.out && o[cty]!=null ? o : null; }
+function stFor(o,cty){ return (cty==="ch" && o.stCh) ? o.stCh : o.st; }
+const stLabel = s => s==="v" ? '<span class="st v">verified</span>' : '<span class="st n">not confirmed</span>';
+
+function renderControls(){
+  document.getElementById("optSeg").innerHTML = DATA.options.map(o=>`<button type="button" data-o="${o.id}" aria-pressed="${o.id===state.opt}">${esc(o.label)}</button>`).join("");
+  document.querySelectorAll("#ctySeg button").forEach(b=>b.setAttribute("aria-pressed", b.dataset.c===state.cty));
+}
+function renderSummary(){
+  const o = opt(), cty = state.cty;
+  let total = 0, missing = 0, unconf = 0;
+  document.getElementById("sumOpt").textContent = o.label + " · delivered to " + (cty==="fr"?"France":"Switzerland");
+  document.getElementById("rows").innerHTML = o.items.map(id=>{
+    const it = DATA.items[id], cond = condOf(id), b = best(it,cond,cty);
+    if(b){ total += b[cty]; if(stFor(b,cty)!=="v") unconf++; } else missing++;
+    return `<div class="row">
+      <div><div class="kind">${it.kind}</div><div class="name">${esc(it.name)} · ${esc(it.size)}</div></div>
+      <div class="seg" role="group" aria-label="${esc(it.name)} condition">
+        <button type="button" data-i="${id}" data-k="new" aria-pressed="${cond==="new"}">New</button><button type="button" data-i="${id}" data-k="used" aria-pressed="${cond==="used"}">Second-hand</button></div>
+      <div class="best">${b ? `Best: <strong>${esc(b.site)}</strong> · ${esc(b.note)}` : "No offer found for this choice and country"} · <a class="jump" href="#sheet-${id}">full sheet</a></div>
+      <div class="price num">${b ? fmt(b[cty],cty) : "–"}</div></div>`;
+  }).join("");
+  const tEl = document.getElementById("total");
+  tEl.innerHTML = fmt(total,cty) + `<small>${missing? missing+" item(s) without an offer · ":""}${unconf? "includes "+unconf+" price(s) not confirmed":"all best prices verified"}</small>`;
+  const bEl = document.getElementById("budget");
+  if(cty==="fr"){
+    const pct = Math.min(100, total/DATA.budgetEUR*100), over = total > DATA.budgetEUR;
+    bEl.innerHTML = `<div class="bar" role="img" aria-label="${Math.round(pct)}% of budget"><i class="${over?"over":""}" style="width:${pct}%"></i></div><span class="num">${over? "Over budget by "+fmt(total-DATA.budgetEUR,"fr") : fmt(DATA.budgetEUR-total,"fr")+" left of your budget"}</span>`;
+  } else {
+    bEl.innerHTML = `<span>Compare in CHF with today's exchange rate.</span>`;
+  }
+  document.getElementById("printNote").textContent = "Choices: " + o.items.map(id=>DATA.items[id].name+" "+(condOf(id)==="new"?"new":"second-hand")).join(", ") + ". ";
+}
+function renderSheets(){
+  const o = opt(), cty = state.cty;
+  document.getElementById("sheets").innerHTML = o.items.map(id=>{
+    const it = DATA.items[id], cond = condOf(id), list = sorted(it,cond,cty), b = best(it,cond,cty);
+    const adv = it.advice[cond==="new"?"now":"used"];
+    const advLbl = {now:"Buy now", wait:"Wait", na:"Not available"}[adv[0]];
+    const rowsHtml = list.length ? list.map(x=>{
+      const v = x[cty], isTop = b && x===b, dim = x.out || v==null;
+      return `<tr class="${isTop?"top":""} ${dim?"dim":""}">
+        <td><strong>${esc(x.site)}</strong>${isTop?'<span class="tag">Best</span>':""}<br><span style="color:var(--muted)">${esc(x.ctry)}</span></td>
+        <td>${esc(x.note)}${x.out?" ":""}</td>
+        <td class="money">${esc(x.price)}</td>
+        <td>${esc(x.ship||"")}</td>
+        <td class="money landed">${x.out ? "out of stock" : (v==null ? (cty==="fr"?"no FR price":"no CH price") : fmt(v,cty))}${cty==="ch"&&x.chNote&&v!=null?`<br><span style="font-weight:400;color:var(--muted);font-family:var(--body);font-size:12px">${esc(x.chNote)}</span>`:""}</td>
+        <td>${stLabel(stFor(x,cty))}</td>
+        <td>${x.url?`<a href="${esc(x.url)}" rel="noopener" target="_blank">Open</a>`:"search the site"}</td></tr>`;
+    }).join("") : `<tr><td colspan="7" class="empty">No ${cond==="new"?"new":"second-hand"} offer found.</td></tr>`;
+    return `<article class="sheet" id="sheet-${id}" aria-labelledby="t-${id}">
+      <div class="sheet-head">
+        <div><span class="eyebrow">${it.kind} · ${cond==="new"?"New":"Second-hand"}</span><h2 id="t-${id}">${esc(it.name)}</h2><p class="sub">Your size: <strong>${esc(it.size)}</strong></p></div>
+        <span class="advice ${adv[0]}">${advLbl}</span>
+      </div>
+      <p class="advice-text">${esc(adv[1])}</p>
+      <div class="box"><h3>Offers by site · delivered to ${cty==="fr"?"France":"Switzerland"}</h3>
+        <div class="tbl"><table><thead><tr><th scope="col">Site</th><th scope="col">Details</th><th scope="col">Price</th><th scope="col">Shipping</th><th scope="col">Delivered</th><th scope="col">Status</th><th scope="col">Link</th></tr></thead><tbody>${rowsHtml}</tbody></table></div></div>
+      <div class="cols">
+        <div class="box"><h3>Specs and size</h3><div class="chips">${it.specs.map(s=>`<span class="chip">${esc(s)}</span>`).join("")}</div><p style="font-size:14px">${esc(it.fit)}</p></div>
+        <div class="box"><h3>Before you buy</h3><ul class="checks">${DATA.checks[cond].map(c=>`<li>${esc(c)}</li>`).join("")}</ul></div>
+      </div>
+    </article>`;
+  }).join("");
+}
+function render(){ renderControls(); renderSummary(); renderSheets(); save(); }
+
+document.addEventListener("click", e=>{
+  const b = e.target.closest("button"); if(!b) return;
+  if(b.dataset.o){ state.opt = b.dataset.o; render(); }
+  else if(b.dataset.c){ state.cty = b.dataset.c; render(); }
+  else if(b.dataset.i){ state.cond[state.opt] = Object.assign({}, state.cond[state.opt], {[b.dataset.i]: b.dataset.k}); render(); }
+  else if(b.id==="printBtn"){ window.print(); }
+});
+render();
+</script>
