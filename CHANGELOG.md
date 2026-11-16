@@ -2,6 +2,9 @@
 
 All notable changes to this skill. Newest first.
 
+## 1.6.0 (2026-11-16)
+- Search budget: 20 tool calls per research agent, 25 per deals agent, stop early once targets are met, comparison sites first, agents run on Sonnet. A first unbudgeted deals run took about 70 tool calls for 2 items.
+
 ## 1.5.0 (2026-11-16)
 - Buying sheets: after the client picks an option, an interactive page with a New / Second-hand switch per item, live set total, one sheet per item (offers by site sorted by landed price, specs and size, checklist), printable one sheet per page.
 - Interview always asks the delivery country.

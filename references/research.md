@@ -26,6 +26,7 @@ Task:
 3. Flag sponsored or affiliate-only rankings as weak sources.
 4. Return 5 to 10 candidates ranked by fit to the profile, with a one-line reason each. Say clearly what you could not find or confirm, and list every site that blocked you.
 5. Shops agent: search by the target specs first; any model list given to you is a starting point, not the scope.
+Budget: stop after 20 tool calls, or as soon as you have 5 good candidates per category with 2 sources each, and report what you have.
 Do not buy anything, log in, or fill any form.
 ```
 

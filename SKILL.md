@@ -60,6 +60,22 @@ At the end of every session (after the report, or when the client stops):
 
 Do not rewrite the skill for a one-off preference of a single client: change it only when the lesson would help most clients.
 
+## Search budget
+
+Research costs tokens and time; keep every run inside this budget.
+
+| Agent | Max tool calls | Stop early when |
+|---|---|---|
+| Each phase 2 research agent | 20 | 5 good candidates per category with 2 sources each |
+| Each deals agent (max 3 items) | 25 | 5 new + 3 second-hand offers per item |
+| Retry of blocked sites (`shop_fetch.py`) | 1 run per agent | always one run, then search links |
+
+- Put the budget and the stop rule in every agent brief ("Stop after N tool calls or as soon as ..., and report what you have").
+- Launch research and deals agents with `model: "sonnet"`; keep merging and the report in the main session.
+- Prefer pages that give many offers at once (price comparison sites, shop search pages) over opening shops one by one.
+- One deals agent per item category, never more than 3 deals agents per client.
+- If a budget runs out, report partial results with what is missing; never extend the budget without the client's ok.
+
 ## Rules
 
 - Nothing from memory: models, specs and prices come from sources checked today. Note the season or year of each model.

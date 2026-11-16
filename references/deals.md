@@ -77,6 +77,7 @@ Task:
 4. Find discounts and codes; mark each verified (seen on the shop's site) or not confirmed.
 5. Give a buy-now or wait recommendation per item, with the reason.
 6. List every site that blocked you. If `~/.venvs/scrapling` exists, retry blocked sites once with `scripts/shop_fetch.py` (rules in "Reading protected shops").
+Budget: stop after 25 tool calls, or as soon as you have 5 new + 3 second-hand offers per item; start with price comparison sites, which list many shops on one page. Report what you have.
 Do not buy, log in, create accounts, subscribe or fill any form.
 ```
 
