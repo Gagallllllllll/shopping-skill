@@ -2,6 +2,10 @@
 
 All notable changes to this skill. Newest first.
 
+## 1.7.1 (2026-11-16)
+- README rewritten for everyone: what a session looks like, what you get, how to fill the buying sheets template (field reference), search budget, optional Scrapling, FAQ.
+- Removed a committed Python cache folder; added `.gitignore`.
+
 ## 1.7.0 (2026-11-16)
 - `templates/buying-sheets.html`: reusable interactive buying sheets (option picker, New / Second-hand per item, delivery country switch, offers sorted by delivered price, specs, checklists, print one sheet per page, choices remembered).
 - Agents are stopped once their report is in.
