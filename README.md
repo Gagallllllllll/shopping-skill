@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 ![Claude Code skill](https://img.shields.io/badge/Claude%20Code-skill-orange)
-![Version](https://img.shields.io/badge/version-1.7.2-green)
+![Version](https://img.shields.io/badge/version-1.8.0-green)
 
 **sport** turns [Claude Code](https://docs.claude.com/en/docs/claude-code) into an expert from a specialist sports shop, with a research team behind it.
 
@@ -95,6 +95,7 @@ An interactive page, opened in Claude after you choose an option:
 |---|---|
 | **Option picker** | Switch between the shortlist options. |
 | **Delivery country switch** | For example *France €* / *Switzerland CHF*. Every total and the order of the offers change with it. |
+| **Model switch** | Where the shortlist has alternatives (for example classic straps or quick-entry bindings), switch the model inside the set. |
 | **New / Second-hand per item** | For example a used board, used bindings and new boots. The set total updates live against your budget. |
 | **One sheet per item** | Every offer found, sorted by delivered price, best one highlighted: site, details, price, shipping, delivered total, status, link. |
 | **Buy now or wait** | Per item, with the reason (stock running out, sale coming, fair second-hand price). |
@@ -121,6 +122,7 @@ const DATA = {
   items: {
     board: {                             // one entry per item; the key is any short id
       kind: "Board",                     // category shown above the name
+      short: "Straps · Brand Model",     // optional: label on the model switch
       name: "Brand Model",
       size: "156 cm",                    // the size recommended for this person
       specs: ["True twin", "Flex 5/10"], // short chips
@@ -146,7 +148,9 @@ const DATA = {
     }
   },
   options: [                             // the options of the shortlist
-    { id: "best", label: "Best fit", items: ["board"], def: { board: "new" } }
+    { id: "best", label: "Best fit",
+      items: ["board", ["bindingsA", "bindingsB"]],   // an array = alternative models, shown as a switch
+      def: { board: "new", bindingsA: "new", bindingsB: "new" } }   // default New / Second-hand per item
   ],
   checks: {                              // checklists shown on every sheet
     new:  ["Size in stock on the product page"],

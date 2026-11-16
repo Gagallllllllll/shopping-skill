@@ -48,6 +48,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .ctl{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .ctl .eyebrow{font-size:11px}
 .optseg{flex-wrap:wrap}
+.models{margin-top:8px;flex-wrap:wrap}
+.models button{font-size:12.5px;padding:6px 10px}
 /* alerts */
 .deadlines{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
 .dl{background:var(--accent-soft);border:1px solid var(--accent);border-radius:8px;padding:10px 14px;font-size:13.5px;display:grid;gap:2px}
@@ -161,26 +163,35 @@ const DATA = {
   // TEMPLATE: replace with the client's data. Example values below are placeholders, not real offers.
   budgetEUR: 1000,
   items: {
-    itemA: {kind:"Board", name:"Example board", size:"<size>", specs:["<spec>","<spec>"], fit:"<why this size fits the client>",
-      advice:{now:["now","<buy-now or wait reason for new>"], used:["wait","<reason for second-hand>"]},
+    itemA: {kind:"Board", name:"Example board", size:"<size>", specs:["<spec>"], fit:"<why this size fits the client>",
+      advice:{now:["now","<reason for new>"], used:["wait","<reason for second-hand>"]},
       offers:[
         {c:"new",site:"Example shop",ctry:"FR",note:"<season · stock · returns>",price:"€0",ship:"free",fr:0,ch:null,st:"n",url:"https://example.com"},
         {c:"used",site:"Example marketplace",ctry:"FR",note:"<size · condition>",price:"€0",ship:"+ fees",fr:0,ch:null,st:"n",url:"https://example.com"}
-      ]}
+      ]},
+    itemB: {kind:"Bindings", short:"Model B", name:"Example bindings B", size:"<size>", specs:["<spec>"], fit:"<fit>",
+      advice:{now:["wait","<reason>"], used:["na","<reason>"]},
+      offers:[{c:"new",site:"Example shop",ctry:"FR",note:"<details>",price:"€0",ship:"free",fr:0,ch:null,st:"n",url:"https://example.com"}]},
+    itemC: {kind:"Bindings", short:"Model C", name:"Example bindings C", size:"<size>", specs:["<spec>"], fit:"<fit>",
+      advice:{now:["now","<reason>"], used:["na","<reason>"]},
+      offers:[{c:"new",site:"Example shop",ctry:"FR",note:"<details>",price:"€0",ship:"free",fr:0,ch:null,st:"n",url:"https://example.com"}]}
   },
-  options: [ {id:"best",label:"Best fit",items:["itemA"],def:{itemA:"new"}} ],
+  // items: a plain id, or an array of alternative ids (the page shows a model switch for that slot)
+  options: [ {id:"best",label:"Best fit",items:["itemA",["itemB","itemC"]],def:{itemA:"new",itemB:"new",itemC:"new"}} ],
   checks: {
     new:["Size in stock on the product page","Return window and who pays return shipping","Sale or code applied in the cart before paying"],
     used:["Model year and size confirmed with a photo of the label","Pay only inside the platform","Price within the fair range"]
   }
 };
 
-let state = {opt:"best", cty:"fr", cond:{}};
+let state = {opt:"best", cty:"fr", cond:{}, pick:{}};
 try{ const s = JSON.parse(localStorage.getItem("parkset-state")||"null"); if(s) state = Object.assign(state,s); }catch(e){}
 const save = () => { try{ localStorage.setItem("parkset-state", JSON.stringify(state)); }catch(e){} };
 const fmt = (v,c) => v==null ? "–" : (c==="fr" ? "€" + v.toLocaleString("en-GB",{minimumFractionDigits:2,maximumFractionDigits:2}) : "CHF " + v.toLocaleString("en-GB",{minimumFractionDigits:2,maximumFractionDigits:2}));
 const esc = s => String(s).replace(/[&<>"]/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
-const opt = () => DATA.options.find(o=>o.id===state.opt) || DATA.options[0];
+const opt = () => DATA.options.find(o=>o.id===state.opt) || (state.opt = DATA.options[0].id, DATA.options[0]);
+const pickOf = (slot,si) => Array.isArray(slot) ? (((state.pick||{})[state.opt]||{})[si] || slot[0]) : slot;
+const chosen = () => opt().items.map((s,si)=>pickOf(s,si));
 const condOf = id => (state.cond[state.opt]||{})[id] || opt().def[id];
 function sorted(item, cond, cty){
   const list = item.offers.filter(o=>o.c===cond);
@@ -199,11 +210,12 @@ function renderSummary(){
   const o = opt(), cty = state.cty;
   let total = 0, missing = 0, unconf = 0;
   document.getElementById("sumOpt").textContent = o.label + " · delivered to " + (cty==="fr"?"France":"Switzerland");
-  document.getElementById("rows").innerHTML = o.items.map(id=>{
-    const it = DATA.items[id], cond = condOf(id), b = best(it,cond,cty);
+  document.getElementById("rows").innerHTML = o.items.map((slot,si)=>{
+    const id = pickOf(slot,si), it = DATA.items[id], cond = condOf(id), b = best(it,cond,cty);
+    const models = Array.isArray(slot) ? `<div class="seg models" role="group" aria-label="${esc(it.kind)} model">${slot.map(m=>`<button type="button" data-s="${si}" data-m="${m}" aria-pressed="${m===id}">${esc(DATA.items[m].short||DATA.items[m].name)}</button>`).join("")}</div>` : "";
     if(b){ total += b[cty]; if(stFor(b,cty)!=="v") unconf++; } else missing++;
     return `<div class="row">
-      <div><div class="kind">${it.kind}</div><div class="name">${esc(it.name)} · ${esc(it.size)}</div></div>
+      <div><div class="kind">${it.kind}</div><div class="name">${esc(it.name)} · ${esc(it.size)}</div>${models}</div>
       <div class="seg" role="group" aria-label="${esc(it.name)} condition">
         <button type="button" data-i="${id}" data-k="new" aria-pressed="${cond==="new"}">New</button><button type="button" data-i="${id}" data-k="used" aria-pressed="${cond==="used"}">Second-hand</button></div>
       <div class="best">${b ? `Best: <strong>${esc(b.site)}</strong> · ${esc(b.note)}` : "No offer found for this choice and country"} · <a class="jump" href="#sheet-${id}">full sheet</a></div>
@@ -218,11 +230,11 @@ function renderSummary(){
   } else {
     bEl.innerHTML = `<span>Compare in CHF with today's exchange rate.</span>`;
   }
-  document.getElementById("printNote").textContent = "Choices: " + o.items.map(id=>DATA.items[id].name+" "+(condOf(id)==="new"?"new":"second-hand")).join(", ") + ". ";
+  document.getElementById("printNote").textContent = "Choices: " + chosen().map(id=>DATA.items[id].name+" "+(condOf(id)==="new"?"new":"second-hand")).join(", ") + ". ";
 }
 function renderSheets(){
   const o = opt(), cty = state.cty;
-  document.getElementById("sheets").innerHTML = o.items.map(id=>{
+  document.getElementById("sheets").innerHTML = chosen().map(id=>{
     const it = DATA.items[id], cond = condOf(id), list = sorted(it,cond,cty), b = best(it,cond,cty);
     const adv = it.advice[cond==="new"?"now":"used"];
     const advLbl = {now:"Buy now", wait:"Wait", na:"Not available"}[adv[0]];
@@ -258,6 +270,7 @@ document.addEventListener("click", e=>{
   const b = e.target.closest("button"); if(!b) return;
   if(b.dataset.o){ state.opt = b.dataset.o; render(); }
   else if(b.dataset.c){ state.cty = b.dataset.c; render(); }
+  else if(b.dataset.m){ state.pick = state.pick||{}; state.pick[state.opt] = Object.assign({}, state.pick[state.opt], {[b.dataset.s]: b.dataset.m}); render(); }
   else if(b.dataset.i){ state.cond[state.opt] = Object.assign({}, state.cond[state.opt], {[b.dataset.i]: b.dataset.k}); render(); }
   else if(b.id==="printBtn"){ window.print(); }
 });

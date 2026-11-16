@@ -2,6 +2,9 @@
 
 All notable changes to this skill. Newest first.
 
+## 1.8.0 (2026-11-16)
+- Buying sheets: alternative models per slot (for example straps or quick-entry bindings) with a model switch inside each set; the sheet and the total follow the choice. Template and README updated.
+
 ## 1.7.2 (2026-11-16)
 - Interview (snowboard): asks the binding entry type early, because some step-in systems need their own boots and change the whole set.
 
