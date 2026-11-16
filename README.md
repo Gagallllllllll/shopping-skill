@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 ![Claude Code skill](https://img.shields.io/badge/Claude%20Code-skill-orange)
-![Version](https://img.shields.io/badge/version-1.8.2-green)
+![Version](https://img.shields.io/badge/version-1.9.0-green)
 
 **sport** turns [Claude Code](https://docs.claude.com/en/docs/claude-code) into an expert from a specialist sports shop, with a research team behind it.
 
@@ -169,10 +169,17 @@ const DATA = {
 
 ## Search budget
 
-Research uses tokens and time, so every agent has a limit and stops early once it has enough:
+Research uses tokens and time, so you choose how deep it goes at the end of the interview:
 
-| Agent | Max tool calls | Stops early when it has |
-|---|---|---|
+| Depth | Research agent | Deals agent | Second-hand | Best for |
+|---|---|---|---|---|
+| **Quick** | 12 tool calls | 15 | top 2 sites | small purchase, in a hurry |
+| **Standard** (default) | 20 | 25 | main sites | most purchases |
+| **Deep** | 40 | 50 | every site, one extra pass per item | expensive or rare gear |
+
+Agents stop early once they have enough, and run on a lighter model (Sonnet). If a budget runs out, you get partial results, a list of what is missing, and the option to extend the search for just that gap.
+
+---|---|---|
 | Each research agent | 20 | 5 good candidates per category, 2 sources each |
 | Each deals agent (max 3 items) | 25 | 5 new + 3 second-hand offers per item |
 | Retry of blocked sites | 1 run | then it gives you search links |

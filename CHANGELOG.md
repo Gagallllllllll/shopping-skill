@@ -2,6 +2,11 @@
 
 All notable changes to this skill. Newest first.
 
+## 1.9.0 (2026-11-16)
+- Search depth chosen by the client: Quick, Standard (default) or Deep, with tool-call limits per agent and second-hand coverage per level.
+- When a budget runs out, the client is offered a targeted extension for the missing part only.
+- Deals agents must search second-hand for every item before stopping.
+
 ## 1.8.2 (2026-11-16)
 - Rule: every item gets its own deals pass before it enters the buying sheets. Brand list prices are marked `ref: true` and never shown as a place to buy.
 

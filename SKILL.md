@@ -62,19 +62,20 @@ Do not rewrite the skill for a one-off preference of a single client: change it 
 
 ## Search budget
 
-Research costs tokens and time; keep every run inside this budget.
+Research costs tokens and time. **Ask the client once, at the end of the interview, which search depth they want** (default: Standard), and keep every agent inside it.
 
-| Agent | Max tool calls | Stop early when |
-|---|---|---|
-| Each phase 2 research agent | 20 | 5 good candidates per category with 2 sources each |
-| Each deals agent (max 3 items) | 25 | 5 new + 3 second-hand offers per item |
-| Retry of blocked sites (`shop_fetch.py`) | 1 run per agent | always one run, then search links |
+| Depth | Research agent | Deals agent (max 3 items) | Second-hand sites | Use when |
+|---|---|---|---|---|
+| **Quick** | 12 tool calls | 15 tool calls | top 2 for the region | small purchase, client in a hurry |
+| **Standard** (default) | 20 | 25 | all main ones for the region | most purchases |
+| **Deep** | 40 | 50 | all, plus a dedicated second-hand pass per item | expensive or rare gear, used market matters |
 
-- Put the budget and the stop rule in every agent brief ("Stop after N tool calls or as soon as ..., and report what you have").
+- Put the limit and the stop rule in every agent brief ("Stop after N tool calls or as soon as ..., and report what you have"). Stop targets: research, 5 good candidates per category with 2 sources each; deals, 5 new + 3 second-hand offers per item (Deep: 8 new + 5 second-hand).
 - Launch research and deals agents with `model: "sonnet"`; keep merging and the report in the main session.
 - Prefer pages that give many offers at once (price comparison sites, shop search pages) over opening shops one by one.
 - One deals agent per item category, never more than 3 deals agents per client.
-- If a budget runs out, report partial results with what is missing; never extend the budget without the client's ok.
+- **Retry of blocked sites:** one `shop_fetch.py` run per agent (two in Deep).
+- **When a budget runs out:** report partial results and list exactly what is missing (for example "second-hand not searched"). Then offer the client a **targeted extension** for that gap only ("search second-hand for item X: about 10 more tool calls?"). Run it only after their yes.
 - As soon as an agent has delivered its report, stop it (`TaskStop`) if it is still running background work.
 
 ## Rules

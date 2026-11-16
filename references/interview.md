@@ -31,6 +31,9 @@ Pick the questions that change the recommendation. Skip anything already answere
 - **Delivery country (always ask, it changes every total: shipping, VAT, customs) and countries or sites they accept to buy from.** Online, shop, or do you want to try before buying?
 - When do you need it?
 
+**Search depth (ask last)**
+- How deep should the search go: Quick, Standard (default) or Deep? Deep takes longer and costs more, but covers every second-hand site and more shops.
+
 **Taste and values**
 - Look and colours, if they matter. Brands you trust.
 - Durability, repairability, eco-design, made in Europe: does any of this matter to you?
