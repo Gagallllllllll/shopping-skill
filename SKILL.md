@@ -44,6 +44,17 @@ Use the report template in `references/research.md`:
 
 Offer to follow up: price alerts to watch, an end-of-season sale reminder, or a training plan for the new gear.
 
+## Phase 4: improve the skill after each use
+
+At the end of every session (after the report, or when the client stops):
+
+1. Note in one or two lines what worked and what did not: a question that was missing or useless, a source type that gave nothing, a sizing rule that was wrong, a client correction.
+2. If it is a real lesson, add an entry at the top of `LESSONS.md` and apply the fix where it belongs: questions in `references/interview.md`, sources and the agent brief in `references/research.md`, method and rules here. Add a line to `CHANGELOG.md` and bump the version (patch for wording and questions, minor for method changes).
+3. **No client data ever goes into the repo:** no names, measurements, places, budgets or quotes from the conversation. Write generic lessons only ("snowboard: ask about binding angles before suggesting a width").
+4. Commit with a clear message and push (`git -C <skill folder> ...`). Tell the user in one line what changed.
+
+Do not rewrite the skill for a one-off preference of a single client: change it only when the lesson would help most clients.
+
 ## Rules
 
 - Nothing from memory: models, specs and prices come from sources checked today. Note the season or year of each model.

@@ -1,12 +1,22 @@
-# sport
+# sport · a professional gear advisor for Claude Code
 
-A professional Claude Code skill that gives gear and training advice for any sport: snowboard, ski, running, cycling, climbing, surf, tennis, golf, fitness and more.
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+![Claude Code skill](https://img.shields.io/badge/Claude%20Code-skill-orange)
+![Version](https://img.shields.io/badge/version-1.1.0-green)
 
-1. **Interview:** it asks the client up to 3 rounds of questions, suggesting a default for each, and builds a detailed athlete profile with target specs. The client confirms the profile before anything else happens.
-2. **Research:** 3 to 4 research agents search the web in parallel, each on one type of source: independent tests, athlete communities, brand specs, and shops (including second-hand). Searches run in several languages and only current-season models count. Each model needs 2 independent sources or it is dropped.
-3. **Report:** a top pick plus alternatives, with sizes, the reasons each one fits, weaknesses, dated prices, shop links and compatibility notes. Every claim is marked as verified, a recommendation, or not confirmed.
+A [Claude Code](https://docs.claude.com/en/docs/claude-code) skill that works like an expert in a specialist sports shop, with a research team behind it. It interviews you, builds your athlete profile, searches the whole web and recommends the gear that fits **you**, not just the best-reviewed product.
 
-It never buys anything, logs in to accounts, or asks for payment details.
+It covers any sport: snowboard, ski, running, cycling, climbing, surf, tennis, golf, fitness and more.
+
+## How it works
+
+| Phase | What happens |
+|---|---|
+| **1. Interview** | Up to 3 rounds of grouped questions, each with a suggested default: your need, level, goals, body and sizes, terrain, budget, country, taste. It asks again when an answer is vague and points out contradictions. |
+| **Athlete profile** | A written profile with target specs (size, flex, shape...) and the reasoning behind each one. **Nothing is recommended until you confirm it.** |
+| **2. Research** | 3 to 4 research agents search in parallel, one per source type: independent tests, athlete communities, brand specs and size charts, shops and second-hand. It searches in several languages and keeps current-season models only. Each model needs 2 independent sources. |
+| **3. Report** | A top pick plus budget, premium and second-hand alternatives, a comparison table, exact sizes, weaknesses, dated prices, shop links, compatibility and fitting tips. Every claim is marked *verified*, *recommendation* or *not confirmed*. |
+| **4. Self-improvement** | After each use it records generic lessons in [`LESSONS.md`](LESSONS.md) and refines its own questions and research method. |
 
 ## Install
 
@@ -14,4 +24,42 @@ It never buys anything, logs in to accounts, or asks for payment details.
 git clone https://github.com/Gagallllllllll/sport-skill ~/.claude/skills/sport
 ```
 
-Then ask Claude Code something like "which snowboard should I buy this winter?" or type `/sport`.
+Update later with `git -C ~/.claude/skills/sport pull`.
+
+## Use
+
+In Claude Code, just describe your need:
+
+> I need a snowboard for this winter.
+
+> Which trail running shoes for my first ultra?
+
+> I want to start road cycling, budget around 1,500 euros.
+
+Or type `/sport`.
+
+## Files
+
+```
+SKILL.md                  the method (4 phases + rules)
+references/interview.md   question bank for all sports + athlete profile template
+references/research.md    source types, research agent brief, merging rules, report template
+LESSONS.md                lessons from real uses
+CHANGELOG.md              version history
+```
+
+## Safety and privacy
+
+- It never buys anything, logs in to an account or fills in a payment form. It gives links only.
+- It never asks for card or bank details.
+- Your measurements and personal details stay in your conversation and never go into the repo or the lessons.
+- Injuries and medical questions: general information only, with a referral to a professional.
+- Prices and stock change quickly: check them on the shop page before you buy.
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md). Issues about a bad recommendation, a missing sport or a weak source are the most useful.
+
+## License
+
+[MIT](LICENSE)
