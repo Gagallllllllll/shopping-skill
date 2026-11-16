@@ -37,7 +37,7 @@ Pick the questions that change the recommendation. Skip anything already answere
 
 ## Sport-specific add-ons (examples, adapt to any sport)
 
-- **Snowboard:** boot size and brand (compare with the current board's width: a wide board with medium boots feels slow edge to edge), stance (regular or goofy), current bindings, preferred feel (playful or stable), carving or butters, speed.
+- **Snowboard:** boot size and brand (compare with the current board's width: a wide board with medium boots feels slow edge to edge), stance (regular or goofy), current bindings, binding entry wanted (classic straps, quick entry with normal boots such as FASE or rear entry, or a step-in system that needs its own boots), preferred feel (playful or stable), carving or butters, speed.
 - **Ski:** ski length today, turn style (short or long), boot flex and last width, touring or resort only.
 - **Running:** weekly distance, race goals, pace, terrain (road, trail, track), pronation if known, current shoe and what you like about it.
 - **Cycling:** road, gravel, MTB, commuting; distances and climbing; position (racy or comfortable); e-bike ok?

@@ -2,6 +2,9 @@
 
 All notable changes to this skill. Newest first.
 
+## 1.7.2 (2026-11-16)
+- Interview (snowboard): asks the binding entry type early, because some step-in systems need their own boots and change the whole set.
+
 ## 1.7.1 (2026-11-16)
 - README rewritten for everyone: what a session looks like, what you get, how to fill the buying sheets template (field reference), search budget, optional Scrapling, FAQ.
 - Removed a committed Python cache folder; added `.gitignore`.

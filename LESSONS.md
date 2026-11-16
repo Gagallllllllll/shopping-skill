@@ -4,6 +4,7 @@ What real uses of the skill taught us. One entry per lesson, newest first. Gener
 
 Format: `- YYYY-MM-DD · <sport> · <what happened> → <what changed in the skill>`
 
+- 2026-11-16 · snowboard · The client asked for quick-entry bindings after the boots were chosen; one system needs its own boots → the interview now asks the binding entry type up front.
 - 2026-11-16 · all · Two deals agents kept running background work after delivering their report → stop agents once the report is in.
 - 2026-11-16 · all · The client wanted to compare offers per item and per condition, not one fixed set → buying sheets template with per-item New / Second-hand switch.
 - 2026-11-16 · all · An unbudgeted deals agent used about 70 tool calls and 24 minutes for 2 items → search budget with stop rules added to every agent brief.
