@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 ![Claude Code skill](https://img.shields.io/badge/Claude%20Code-skill-orange)
-![Version](https://img.shields.io/badge/version-1.2.0-green)
+![Version](https://img.shields.io/badge/version-1.3.0-green)
 
 A [Claude Code](https://docs.claude.com/en/docs/claude-code) skill that works like an expert in a specialist sports shop, with a research team behind it. It interviews you, builds your athlete profile, searches the whole web and recommends the gear that fits **you**, not just the best-reviewed product.
 
@@ -15,6 +15,7 @@ It covers any sport: snowboard, ski, running, cycling, climbing, surf, tennis, g
 | **1. Interview** | Up to 3 rounds of grouped questions, each with a suggested default: your need, level, goals, body and sizes, terrain, budget, country, taste. It asks again when an answer is vague and points out contradictions. |
 | **Athlete profile** | A written profile with target specs (size, flex, shape...) and the reasoning behind each one. **Nothing is recommended until you confirm it.** |
 | **2. Research** | 3 to 4 research agents search in parallel, one per source type: independent tests, athlete communities, brand specs and size charts, shops and second-hand. It searches in several languages and keeps current-season models only. Each model needs 2 independent sources. |
+| **Best price** | A deals agent compares the landed price (shipping, VAT and customs included) across shops, comparison sites, outlets and second-hand, checks price history, finds discount codes and sales, and says buy now or wait. |
 | **3. Report** | A designed report page (option cards side by side, comparison table) with a top pick plus budget, premium and second-hand alternatives, a comparison table, exact sizes, weaknesses, dated prices, shop links, compatibility and fitting tips. Every claim is marked *verified*, *recommendation* or *not confirmed*. |
 | **4. Self-improvement** | After each use it records generic lessons in [`LESSONS.md`](LESSONS.md) and refines its own questions and research method. |
 
@@ -44,6 +45,7 @@ Or type `/sport`.
 SKILL.md                  the method (4 phases + rules)
 references/interview.md   question bank for all sports + athlete profile template
 references/research.md    source types, research agent brief, merging rules, report template
+references/deals.md       best price and discount method + deals agent brief
 references/report-design.md  layout of the designed report page (option cards, comparison table)
 LESSONS.md                lessons from real uses
 CHANGELOG.md              version history

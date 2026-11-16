@@ -2,6 +2,10 @@
 
 All notable changes to this skill. Newest first.
 
+## 1.3.0 (2026-11-16)
+- Best price hunt: deals agent, landed price (shipping, VAT, customs, returns), price history, discount codes and sales marked verified or not confirmed, buy-now-or-wait advice, second-hand fair price and scam checks (`references/deals.md`).
+- Report gains a "Best price plan" section.
+
 ## 1.2.0 (2026-11-16)
 - Report delivered as a designed page: option cards side by side with the recommended set highlighted, a comparison table, sizing reasoning, sources (`references/report-design.md`).
 - Version bump is now automatic at the end of every use that changes the skill.

@@ -1,6 +1,6 @@
 ---
 name: sport
-description: Professional sports gear and training advisor for any sport (snowboard, ski, running, cycling, climbing, surf, tennis, golf, fitness...). Interviews the client to build a precise athlete profile, researches the whole web in parallel (reviews, lab tests, forums, brand specs, shops, second-hand), and delivers a sourced shortlist with sizes, prices and where to buy. Triggers: which snowboard, quel équipement, choisir des chaussures de running, quel vélo, matériel de sport, gear advice, sport.
+description: Professional sports gear and training advisor for any sport (snowboard, ski, running, cycling, climbing, surf, tennis, golf, fitness...). Interviews the client to build a precise athlete profile, researches the whole web in parallel (reviews, lab tests, forums, brand specs, shops, second-hand), hunts the best landed price and discounts, and delivers a sourced shortlist with sizes, prices and where to buy. Triggers: which snowboard, quel équipement, choisir des chaussures de running, quel vélo, matériel de sport, gear advice, sport.
 ---
 
 # Sport advisor (professional)
@@ -30,6 +30,7 @@ Read `references/research.md`. Then:
 3. Merge the results: a candidate list with, for each model, its specs, its fit to the profile, its sources (at least 2 independent ones, or it gets dropped) and its real prices.
 4. Check the fit: drop anything that breaks a deal-breaker, the budget, the size or a compatibility constraint (bindings and boots, bike standards, shoe last...).
 5. If fewer than 3 candidates are left, say why and widen the search once (adjacent models, last season's version, second-hand).
+6. **Best price hunt:** read `references/deals.md`. Once the shortlist is set (exact models and sizes), launch a **deals agent** with the brief in that file. It compares landed prices (shipping, VAT, customs included) across shops, comparison sites, outlets and second-hand, checks price history, finds discount codes and sales (each marked verified or not confirmed), and says buy now or wait. Rebuild each option's total from the best landed prices.
 
 ## Phase 3: recommendation report
 
@@ -38,6 +39,7 @@ Use the report template in `references/research.md`:
 - the **top pick** and why it fits *this* client;
 - 2 to 4 alternatives (budget, premium, "if you progress fast", second-hand / last season);
 - for each: exact model and size, key specs, why it fits, main weakness, price range with the date checked and shop links;
+- a **best price plan**: best landed offer and runner-up per item, discounts with their status, buy now or wait, and the cheapest way to get each option;
 - compatibility and full-kit notes, setup and fitting tips, safety notes;
 - what to try in a shop or check on delivery before keeping it;
 - each claim marked **verified** (source link) / **recommendation** / **not confirmed**.

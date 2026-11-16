@@ -11,9 +11,10 @@ The final report is a single HTML page published with the Artifact tool. It shou
    - Each card: option name, total price range (large), the items with sizes, 3 "why it fits you" points, 1 "watch out" point, and shop links.
    - Wraps into one column on phones.
 4. **Comparison table:** rows = items or criteria (jumps, rails, butters, stability at 85 kg, price), columns = options. Use short ratings and words, not only colour. Wrapped in a horizontal scroll container on small screens.
-5. **Why these sizes:** the sizing reasoning in 3 to 5 lines, including where sources disagreed and which one you trusted.
-6. **Kit and compatibility, fitting and safety tips, before you keep it:** short lists.
-7. **Sources:** grouped by type (tests, communities, brand specs, shops), each with its link. Status legend: verified / recommendation / not confirmed.
+5. **Best price plan:** per item, the best landed offer (price + shipping + VAT/customs) and the runner-up, discounts with their status, a clear "buy now" or "wait until <sale>" chip, and the cheapest total per option.
+6. **Why these sizes:** the sizing reasoning in 3 to 5 lines, including where sources disagreed and which one you trusted.
+7. **Kit and compatibility, fitting and safety tips, before you keep it:** short lists.
+8. **Sources:** grouped by type (tests, communities, brand specs, shops), each with its link. Status legend: verified / recommendation / not confirmed.
 
 ## Principles
 
