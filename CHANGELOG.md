@@ -2,6 +2,10 @@
 
 All notable changes to this skill. Newest first.
 
+## 1.4.0 (2026-11-16)
+- Optional protected-shop reading with Scrapling 0.5.1 (`scripts/shop_fetch.py`, `scripts/setup-scrapling.sh`): stealth browser, at most 10 pages per run, pauses, no login, proxy or paid bypass. Tested: works on eBay.fr and Ricardo.ch; Leboncoin still blocked (strong protection).
+- Deals agent retries blocked sites once with it, then falls back to a search link for the client.
+
 ## 1.3.0 (2026-11-16)
 - Best price hunt: deals agent, landed price (shipping, VAT, customs, returns), price history, discount codes and sales marked verified or not confirmed, buy-now-or-wait advice, second-hand fair price and scam checks (`references/deals.md`).
 - Report gains a "Best price plan" section.

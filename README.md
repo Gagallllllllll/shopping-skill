@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 ![Claude Code skill](https://img.shields.io/badge/Claude%20Code-skill-orange)
-![Version](https://img.shields.io/badge/version-1.3.0-green)
+![Version](https://img.shields.io/badge/version-1.4.0-green)
 
 A [Claude Code](https://docs.claude.com/en/docs/claude-code) skill that works like an expert in a specialist sports shop, with a research team behind it. It interviews you, builds your athlete profile, searches the whole web and recommends the gear that fits **you**, not just the best-reviewed product.
 
@@ -27,6 +27,14 @@ git clone https://github.com/Gagallllllllll/sport-skill ~/.claude/skills/sport
 
 Update later with `git -C ~/.claude/skills/sport pull`.
 
+### Optional: read shops that block simple fetching
+
+```bash
+~/.claude/skills/sport/scripts/setup-scrapling.sh
+```
+
+Installs [Scrapling](https://github.com/D4Vinci/Scrapling) (BSD-3, pinned to 0.5.1) in `~/.venvs/scrapling`. The deals agent then retries blocked shops with `scripts/shop_fetch.py`: at most 10 pages per run, pauses between pages, no login, no proxy, no paid bypass service. Some sites forbid automated reading in their terms or `robots.txt`; using it there is your decision and your risk.
+
 ## Use
 
 In Claude Code, just describe your need:
@@ -47,6 +55,8 @@ references/interview.md   question bank for all sports + athlete profile templat
 references/research.md    source types, research agent brief, merging rules, report template
 references/deals.md       best price and discount method + deals agent brief
 references/report-design.md  layout of the designed report page (option cards, comparison table)
+scripts/shop_fetch.py     optional: read protected shop pages (Scrapling)
+scripts/setup-scrapling.sh  optional: install Scrapling in its own environment
 LESSONS.md                lessons from real uses
 CHANGELOG.md              version history
 ```
