@@ -24,11 +24,18 @@ Task:
 1. Search the web widely (several queries, several languages: <LANGUAGES>) for current-season (<YEAR/SEASON>) products that match the target specs. For each candidate, open the pages (WebFetch) and read them; do not rely on search snippets.
 2. For each model, return: exact name and season, the specs that matter for this profile, the evidence (quote or figure + URL), positives and negatives seen, and for shops: price, currency, size availability, URL, and today's date.
 3. Flag sponsored or affiliate-only rankings as weak sources.
-4. Return 5 to 10 candidates ranked by fit to the profile, with a one-line reason each. Say clearly what you could not find or confirm.
+4. Return 5 to 10 candidates ranked by fit to the profile, with a one-line reason each. Say clearly what you could not find or confirm, and list every site that blocked you.
+5. Shops agent: search by the target specs first; any model list given to you is a starting point, not the scope.
 Do not buy anything, log in, or fill any form.
 ```
 
+## Blocked sites
+
+Many large shops, classifieds, Reddit and some brand sites block automated reading or rate-limit it. Agents list every site they could not open; the report tells the client which ones to check by hand. Shops that expose page data (stock per size, prices) are the most reliable to read.
+
 ## Merging rules
+
+- Sizing conflicts (brand chart vs riders vs testers): prefer a tester with a build close to the client's, then the size where the client's weight sits in the middle of the brand range, and explain the conflict in the report.
 
 - Keep a model only if at least 2 independent sources support its fit (a brand page plus an independent test counts; two pages of the same shop does not).
 - When sources disagree, say so and explain which one you trust and why.
