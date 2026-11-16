@@ -28,7 +28,7 @@ Pick the questions that change the recommendation. Skip anything already answere
 **Budget and buying**
 - Budget, and what it covers (one item or the full kit). Are you flexible if a better match costs 10 to 20% more?
 - New only, or open to last season's models, outlet or second-hand?
-- Country of purchase and delivery. Online, shop, or do you want to try before buying?
+- **Delivery country (always ask, it changes every total: shipping, VAT, customs) and countries or sites they accept to buy from.** Online, shop, or do you want to try before buying?
 - When do you need it?
 
 **Taste and values**

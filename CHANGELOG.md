@@ -2,6 +2,10 @@
 
 All notable changes to this skill. Newest first.
 
+## 1.5.0 (2026-11-16)
+- Buying sheets: after the client picks an option, an interactive page with a New / Second-hand switch per item, live set total, one sheet per item (offers by site sorted by landed price, specs and size, checklist), printable one sheet per page.
+- Interview always asks the delivery country.
+
 ## 1.4.0 (2026-11-16)
 - Optional protected-shop reading with Scrapling 0.5.1 (`scripts/shop_fetch.py`, `scripts/setup-scrapling.sh`): stealth browser, at most 10 pages per run, pauses, no login, proxy or paid bypass. Tested: works on eBay.fr and Ricardo.ch; Leboncoin still blocked (strong protection).
 - Deals agent retries blocked sites once with it, then falls back to a search link for the client.
