@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 ![Claude Code skill](https://img.shields.io/badge/Claude%20Code-skill-orange)
-![Version](https://img.shields.io/badge/version-1.9.0-green)
+![Version](https://img.shields.io/badge/version-1.9.1-green)
 
 **sport** turns [Claude Code](https://docs.claude.com/en/docs/claude-code) into an expert from a specialist sports shop, with a research team behind it.
 

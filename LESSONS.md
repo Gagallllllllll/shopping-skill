@@ -4,6 +4,8 @@ What real uses of the skill taught us. One entry per lesson, newest first. Gener
 
 Format: `- YYYY-MM-DD · <sport> · <what happened> → <what changed in the skill>`
 
+- 2026-11-16 · snowboard · The same shop was cheaper on its German site than on its French site, with free EU shipping → deals method now checks a shop's other country sites.
+- 2026-11-16 · snowboard · A Deep search (50 tool calls) on one new-season item found 8 new offers but only 1 second-hand lead → for brand-new models, say early that second-hand will be thin and suggest close alternatives.
 - 2026-11-16 · snowboard · A deals agent hit its budget before searching second-hand; the client wanted more search → search depth levels and a targeted extension offer.
 - 2026-11-16 · snowboard · A late alternative (quick-entry bindings) went into the sheets with only a list price and no shops → every item now needs its own deals pass; list prices are reference only.
 - 2026-11-16 · all · The set total used a cheap offer whose size was not confirmed, about €130 too optimistic → such offers are shown but never count as best.

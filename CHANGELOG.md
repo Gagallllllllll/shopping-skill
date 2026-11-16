@@ -2,6 +2,9 @@
 
 All notable changes to this skill. Newest first.
 
+## 1.9.1 (2026-11-16)
+- Deals: check the same shop's other country sites (prices and shipping differ).
+
 ## 1.9.0 (2026-11-16)
 - Search depth chosen by the client: Quick, Standard (default) or Deep, with tool-call limits per agent and second-hand coverage per level.
 - When a budget runs out, the client is offered a targeted extension for the missing part only.

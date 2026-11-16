@@ -24,6 +24,7 @@ landed price = item price - confirmed discount + shipping + import VAT / duties 
 | Brand outlets and brand stores | End-of-line colours, previous season |
 | Test, demo or ex-rental gear | Shops that sell their test fleet at the end of the season |
 | Second-hand marketplaces in the region | Fair price range from several listings, condition, seller history |
+| Same shop, other country sites | Many shops run several country sites (.com, .de, .ch...) with different prices and shipping rules; check them for the client's delivery country |
 | Price-match policies | Shops that match a competitor's price: name the policy page |
 
 ## Reading protected shops (optional)
