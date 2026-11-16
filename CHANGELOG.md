@@ -1,6 +1,13 @@
 # Changelog
 
-All notable changes to this skill. Newest first.
+All notable changes to this skill. Newest first. Versions up to 1.10.0 were published as the `sport` skill.
+
+## 2.0.0 (2026-11-16)
+- **Renamed `sport` to `shopping`:** a shopping advisor for any category, with category packs in `references/categories/` (sport: tested; electronics, fashion and shoes, furniture and bedding: drafts built from sourced research). Unknown categories get a draft pack written during the session.
+- Core method moved to `references/core/` and made category-neutral (client profile instead of athlete profile).
+- Deals: official recall check (EU Safety Gate, France RappelConso), refurbished and ex-display sources.
+- Sensitive categories (medicines, medical devices, child car seats, weapons, financial products): general information only.
+- README, contributing guide and template updated; repository renamed to `shopping-skill`.
 
 ## 1.10.0 (2026-11-16)
 - Buying sheets: a "Your picks" option, added first once the client chooses exact listings, with per-item checklist and fallback.

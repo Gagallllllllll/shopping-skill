@@ -5,19 +5,19 @@
 | Type | What it gives | Examples of what to look for |
 |---|---|---|
 | Independent tests | measured performance, comparisons | lab or field test sites, specialised magazines, long-term reviews |
-| Communities | real-world use, durability, problems | sport subreddits, forums, club groups, video reviews with comments |
+| Communities | real-world use, durability, problems | category subreddits and forums, clubs, video reviews with comments |
 | Brand specs | exact sizes, shapes, technologies | official product pages, size charts, catalogues for the current season |
 | Shops | real prices, stock, sizes available | large online shops and specialist shops in the client's region, brand stores |
 | Deals and second-hand | lower prices, last season | outlets, end-of-season sales, second-hand marketplaces in the region |
 
-Search in several languages (the client's language, English, and the language of the sport's leading markets). The `WebSearch` tool may lean towards US results: for prices and stock in another region, open the regional shops with `WebFetch`.
+Search in several languages (the client's language, English, and the language of the category's leading markets). The `WebSearch` tool may lean towards US results: for prices and stock in another region, open the regional shops with `WebFetch`.
 
 ## Research agent brief (paste into each agent)
 
 ```
-You are a research agent for a sports gear recommendation. Source type: <TYPE>.
+You are a research agent for a <CATEGORY> purchase. Source type: <TYPE>. Use the trusted sources listed in the category pack first.
 
-Client athlete profile (validated):
+Client profile (validated):
 <PROFILE + TARGET SPECS>
 
 Task:
@@ -36,7 +36,7 @@ Many large shops, classifieds, Reddit and some brand sites block automated readi
 
 ## Merging rules
 
-- Sizing conflicts (brand chart vs riders vs testers): prefer a tester with a build close to the client's, then the size where the client's weight sits in the middle of the brand range, and explain the conflict in the report.
+- Sizing conflicts (brand chart vs users vs testers): prefer a tester with a build or use close to the client's, then the size where the client's weight sits in the middle of the brand range, and explain the conflict in the report.
 
 - Keep a model only if at least 2 independent sources support its fit (a brand page plus an independent test counts; two pages of the same shop does not).
 - When sources disagree, say so and explain which one you trust and why.

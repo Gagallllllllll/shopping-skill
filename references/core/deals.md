@@ -1,6 +1,6 @@
 # Best price and discounts
 
-Goal: the lowest **real** cost for the exact items in the shortlist (same model, season, size), delivered to the client, with a clear plan for when and where to buy. Every price and code is checked today; nothing comes from memory.
+Goal: the lowest **real** cost for the exact items in the shortlist (same model, model year or season, size or variant), delivered to the client, with a clear plan for when and where to buy. Every price and code is checked today; nothing comes from memory.
 
 ## 1. Landed price, not sticker price
 
@@ -22,7 +22,7 @@ landed price = item price - confirmed discount + shipping + import VAT / duties 
 | Price history (comparison sites with history graphs, marketplace price trackers) | Whether today's price is low, normal or high for this item; the usual low point |
 | Shops directly | Sale pages, outlet section, "last season" or previous-year model, bundles (check that bundled items fit the profile) |
 | Brand outlets and brand stores | End-of-line colours, previous season |
-| Test, demo or ex-rental gear | Shops that sell their test fleet at the end of the season |
+| Test, demo, ex-rental, ex-display or refurbished | Test fleets, showroom pieces, manufacturer or certified refurbished (check the warranty) |
 | Second-hand marketplaces in the region | Fair price range from several listings, condition, seller history |
 | Same shop, other country sites | Many shops run several country sites (.com, .de, .ch...) with different prices and shipping rules; check them for the client's delivery country |
 | Price-match policies | Shops that match a competitor's price: name the policy page |
@@ -61,14 +61,15 @@ From the price history and this season's sale calendar, say clearly:
 
 - Fair price: the middle of at least 3 comparable listings, not the lowest outlier.
 - Scam signs: price far below the range, seller pushing payment outside the platform, no real photos.
-- Condition checks specific to the sport (base and edges for boards, sole and liner for boots, frame and wear parts for bikes).
+- Condition checks from the category pack (`references/categories/<category>.md`, section "Second-hand checks").
+- **Recall check:** search the item on the official recall databases for the region (EU: Safety Gate; France: RappelConso; others as listed in the category pack) before recommending it, new or second-hand.
 
 ## Deals agent brief (paste into the deals agent)
 
 ```
-You are the deals agent for a sports gear recommendation. Today is <DATE>. Client country: <COUNTRY>, can buy in <COUNTRIES/ONLINE>.
+You are the deals agent for a <CATEGORY> purchase. Today is <DATE>. Client country: <COUNTRY>, can buy in <COUNTRIES/ONLINE>.
 
-Shortlist (exact model, season, size):
+Shortlist (exact model, model year or season, size or variant):
 <ITEMS>
 
 Task:
