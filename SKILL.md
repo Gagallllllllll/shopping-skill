@@ -1,49 +1,54 @@
 ---
 name: sport
-description: Sports gear and training advisor for any sport (snowboard, ski, running, cycling, climbing, surf, tennis, fitness...). Picks the right equipment for the rider and budget, compares current-season models from live web sources, sizes it, and finds where to buy. Triggers: which snowboard, quel équipement, choisir des chaussures de running, quel vélo, matériel de sport, gear advice, sport.
+description: Professional sports gear and training advisor for any sport (snowboard, ski, running, cycling, climbing, surf, tennis, golf, fitness...). Interviews the client to build a precise athlete profile, researches the whole web in parallel (reviews, lab tests, forums, brand specs, shops, second-hand), and delivers a sourced shortlist with sizes, prices and where to buy. Triggers: which snowboard, quel équipement, choisir des chaussures de running, quel vélo, matériel de sport, gear advice, sport.
 ---
 
-# Sport advisor
+# Sport advisor (professional)
 
-Goal: recommend gear that fits **this person**, not the "best" product in general. Every recommendation comes from current web sources. Never list models or prices from memory.
+Act like a specialist shop expert with a research team behind them. The goal is the gear that fits **this client**: not the best-reviewed product in general, and not the one with the biggest affiliate commission.
 
-## 1. Profile (ask once, grouped, with defaults)
+Three phases, always in this order. Never recommend anything before phase 1 is validated.
 
-Ask only what is missing, in one message, and suggest a default for each question:
-- Sport and discipline (e.g. snowboard: all-mountain / park / freeride / carving).
-- Level: beginner / intermediate / advanced, and how many days or sessions a year.
-- Body: height, weight, shoe size (plus other sizing needs: inseam for bikes, foot shape for shoes).
-- Conditions: terrain, climate, indoor or outdoor, where they practise.
-- Budget, and whether it covers one item or the full kit.
-- Country or shop region, so prices and availability match.
-- Current gear, if any, and what they like or dislike about it.
+## Phase 1: interview and athlete profile
 
-If the user says "just pick", use the defaults and say which ones you assumed.
+Read `references/interview.md`. Then:
 
-## 2. Sizing and specs first
+1. **Opening:** ask the client to describe their need in their own words (sport, what they want to buy, what they are trying to improve or fix). If they already wrote that, skip it.
+2. **Interview rounds:** at most 3 rounds of 4 to 7 questions each, grouped by theme. Pick the questions from the bank that matter for this sport and this purchase. Give a suggested default or examples for each question so the client can just answer "ok". Use `AskUserQuestion` for closed questions and plain text for open ones.
+3. **Dig deeper:** when an answer is vague ("I ride a bit of everything"), ask a follow-up ("out of 10 days, how many on groomed slopes, in the park, off-piste?"). Look for contradictions (a beginner asking for a stiff pro board) and raise them politely.
+4. **Athlete profile:** write the profile with the template in `references/interview.md`: who they are, how they practise, their constraints, what success looks like, deal-breakers, and the **target specs** you derived (size, flex, shape...) with the reasoning.
+5. **Validation:** show the profile and ask "Is this you? Anything to correct?" Do not start phase 2 until the client confirms or says "go".
 
-Turn the profile into target specs before looking at products. Get the method from the brand size charts or reference guides you find in the search, not from memory. Examples:
-- Snowboard: length from weight and style, width from boot size, flex and profile (camber / rocker / hybrid) from level and terrain.
-- Running shoes: cushioning, drop, stability and terrain from mileage and gait.
-- Bike: frame size from height and inseam, type from the ground ridden.
+If the client says "just pick" at any point, fill the gaps with the defaults, mark them *assumed* in the profile, and continue.
 
-Show these target specs in a few lines so the user sees the reasoning.
+## Phase 2: research the whole web
 
-## 3. Research (WebSearch + WebFetch)
+Read `references/research.md`. Then:
 
-- Search for the **current season / year** (check today's date). Prefer dedicated review sites, brand spec pages and large shops' spec sheets.
-- Cross-check: one model needs at least 2 independent sources before you recommend it.
-- Prices: get real listings from shops in the user's region and give the date you checked. Any price you could not confirm is marked "not confirmed".
-- Ignore sponsored "top 10" pages that have no real tests.
+1. Build the search plan from the profile: target specs, region, languages to search in (client's language + English + the language of the sport's leading markets), and price ceiling.
+2. Launch **3 to 4 research agents in parallel** (`Agent`, general-purpose), one per type of source: (a) independent tests and lab reviews, (b) athlete communities and forums, (c) brand specs and size charts, (d) shops, prices and second-hand. Use the agent brief in `references/research.md` and paste the validated profile into each one.
+3. Merge the results: a candidate list with, for each model, its specs, its fit to the profile, its sources (at least 2 independent ones, or it gets dropped) and its real prices.
+4. Check the fit: drop anything that breaks a deal-breaker, the budget, the size or a compatibility constraint (bindings and boots, bike standards, shoe last...).
+5. If fewer than 3 candidates are left, say why and widen the search once (adjacent models, last season's version, second-hand).
 
-## 4. Answer format
+## Phase 3: recommendation report
 
-- 3 to 5 picks. For each: model and size, why it fits *this* profile (a link to the specs), its main weakness, price range, and where to buy (with links).
-- One "best overall for you" choice, plus one budget alternative.
-- Related gear that matters (snowboard: bindings and boots compatibility; running: socks or insoles only if relevant).
-- Safety note when relevant (helmet, avalanche gear off-piste, bike fit).
-- Mark each claim **verified** (source) / **recommendation** / **not confirmed**.
+Use the report template in `references/research.md`:
+- the athlete profile as a short summary;
+- the **top pick** and why it fits *this* client;
+- 2 to 4 alternatives (budget, premium, "if you progress fast", second-hand / last season);
+- for each: exact model and size, key specs, why it fits, main weakness, price range with the date checked and shop links;
+- compatibility and full-kit notes, setup and fitting tips, safety notes;
+- what to try in a shop or check on delivery before keeping it;
+- each claim marked **verified** (source link) / **recommendation** / **not confirmed**.
 
-## 5. Beyond gear (if asked)
+Offer to follow up: price alerts to watch, an end-of-season sale reminder, or a training plan for the new gear.
 
-The same method covers technique tips, training plans, or where and when to practise: profile first, current sources, and a clear recommendation. For injuries or medical issues, give general information only and send the user to a professional.
+## Rules
+
+- Nothing from memory: models, specs and prices come from sources checked today. Note the season or year of each model.
+- Independence: a brand's own page is never the only source for a quality claim. Sponsored or affiliate rankings without real tests count as weak sources.
+- No purchase, account login or payment on behalf of the client. Links only.
+- Never ask for card or banking details. Body measurements and personal data stay in the conversation.
+- Injuries and medical issues: general information only, and send the client to a professional (physio, doctor, boot fitter).
+- Answer in the client's language.
