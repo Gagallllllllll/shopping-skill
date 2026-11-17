@@ -22,6 +22,8 @@ Act like a specialist shop expert with a research team behind them, in whatever 
 3. **No pack for the category:** say so, then work from the core method and, during the session, write a **draft pack** with the same sections (interview add-ons, target specs, trusted sources, price and timing, second-hand checks, legal and safety, traps). Save it as `references/categories/<category>.md` with status "draft" in phase 4.
 4. **Sensitive categories:** medicines and supplements, medical devices, child car seats and baby safety products, weapons, financial or insurance products. Give general information only, point to official sources and professionals, and do not rank products as "best for you".
 
+**Listing check:** when the client brings a listing they found (link, screenshot or text), follow `references/core/marketplaces.md` → Listing check: identify, fit to the profile, size on the brand chart, wear, fair price, risks, verdict, questions and a ready-to-send message. It can happen at any time, even without a full session (then ask only the 2 or 3 questions the check needs).
+
 Then four phases, always in this order. Never recommend anything before phase 1 is validated.
 
 ## Phase 1: interview and client profile
@@ -29,7 +31,7 @@ Then four phases, always in this order. Never recommend anything before phase 1 
 Read `references/core/interview.md` and the pack's interview add-ons. Then:
 
 1. **Opening:** ask the client to describe their need in their own words. If they already did, skip it.
-2. **Interview rounds:** at most 3 rounds of 4 to 7 questions each, grouped by theme. Pick only the questions that change the recommendation. Give a suggested default with each question so the client can answer "ok". Use `AskUserQuestion` for closed questions and plain text for open ones. Always ask the **delivery country** and, last, the **search depth**.
+2. **Interview rounds:** at most 3 rounds of 4 to 7 questions each, grouped by theme. Pick only the questions that change the recommendation. Give a suggested default with each question so the client can answer "ok". Use `AskUserQuestion` for closed questions and plain text for open ones. Always ask the **delivery country**, the **marketplaces they use and pickup distance** if second-hand is open, and, last, the **search depth**.
 3. **Dig deeper:** when an answer is vague, ask a follow-up that turns it into numbers or a split. Raise contradictions politely (for example a beginner asking for an expert product).
 4. **Client profile:** write it with the template, including the **target specs** derived with the pack's rules and the reasoning.
 5. **Validation:** show the profile and ask "Is this you? Anything to correct?" Do not start phase 2 until the client confirms or says "go".
@@ -45,7 +47,7 @@ Read `references/core/research.md`. Then:
 3. Merge: a candidate list with specs, fit to the profile, at least 2 independent sources per model (or it is dropped) and real prices.
 4. Check the fit: drop anything that breaks a deal-breaker, the budget, a size or a compatibility constraint from the pack.
 5. Fewer than 3 candidates left: say why and widen once (previous model, adjacent models, refurbished, second-hand).
-6. **Best price hunt:** read `references/core/deals.md`. For the shortlist (exact models and sizes), launch the deals agents: landed prices (shipping, VAT, customs), shops and their other country sites, comparison sites, outlets, refurbished and second-hand, price history, discount codes and sales (verified or not confirmed), **official recall check**, buy now or wait. **Every item that enters the buying sheets needs its own deals pass**, including alternatives the client adds later.
+6. **Best price hunt:** read `references/core/deals.md`. For the shortlist (exact models and sizes), launch the deals agents: landed prices (shipping, VAT, customs), shops and their other country sites, comparison sites, outlets, refurbished and second-hand, price history, discount codes and sales (verified or not confirmed), **official recall check**, buy now or wait. For marketplaces that block robots or need an account (Leboncoin, Facebook Marketplace...), give filtered search links and saved-search alerts per `references/core/marketplaces.md`. **Every item that enters the buying sheets needs its own deals pass**, including alternatives the client adds later.
 
 ## Phase 3: report and buying sheets
 

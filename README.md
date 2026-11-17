@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 ![Claude Code skill](https://img.shields.io/badge/Claude%20Code-skill-orange)
-![Version](https://img.shields.io/badge/version-2.0.0-green)
+![Version](https://img.shields.io/badge/version-2.1.0-green)
 
 **shopping** turns [Claude Code](https://docs.claude.com/en/docs/claude-code) into an expert from a specialist shop, with a research team behind it, in whatever category you need: sports gear, electronics, fashion and shoes, furniture and bedding, and more.
 
@@ -23,6 +23,7 @@ You say what you need ("I need a laptop for photo editing", "a new snowboard set
 - [Use](#use)
 - [What you get](#what-you-get)
 - [The buying sheets template](#the-buying-sheets-template)
+- [Marketplaces and listing check](#marketplaces-and-listing-check)
 - [Search depth](#search-depth)
 - [Optional: reading shops that block robots](#optional-reading-shops-that-block-robots)
 - [It improves itself](#it-improves-itself)
@@ -188,6 +189,17 @@ const DATA = {
 
 ---
 
+## Marketplaces and listing check
+
+Local marketplaces (Leboncoin, Facebook Marketplace, Vinted, Ricardo, tutti, Kleinanzeigen, Subito, Wallapop...) often have the best second-hand finds. Many block robots or need an account, and the skill never logs in for you, so:
+
+- **Search links and alerts:** for each item, filtered search links for the marketplaces of your region, and which saved-search alerts to set.
+- **Listing check:** send a listing you found (link, screenshot or pasted text). The skill identifies the exact model, checks it against your profile and your size on the brand chart, judges wear and a fair price from comparable listings, flags scam signs, and gives you a verdict, the questions to ask, a target offer and a ready-to-send message. Works any time, even outside a full session.
+
+Details: [`references/core/marketplaces.md`](references/core/marketplaces.md).
+
+---
+
 ## Search depth
 
 You choose how deep the research goes at the end of the interview:
@@ -231,6 +243,7 @@ SKILL.md                         the method: category, interview, research, best
 references/core/interview.md     question bank for every category + client profile template
 references/core/research.md      source types, research agent brief, merging rules, report outline
 references/core/deals.md         best price, discounts, recalls + deals agent brief
+references/core/marketplaces.md  marketplaces by region, search links, listing check
 references/core/report-design.md how the shortlist page and buying sheets are laid out
 references/categories/*.md       category packs (sport, electronics, fashion, furniture)
 templates/buying-sheets.html     interactive buying sheets (fill the DATA object)

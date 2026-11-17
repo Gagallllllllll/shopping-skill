@@ -21,7 +21,7 @@ Load the category pack first (`references/categories/<category>.md`): its questi
 
 **Budget and buying**
 - Budget, and what it covers. Are you flexible if a better match costs 10 to 20% more?
-- New only, or open to previous models, outlet, refurbished or second-hand?
+- New only, or open to previous models, outlet, refurbished or second-hand? If second-hand: which marketplaces do you use (Leboncoin, Facebook Marketplace, Vinted, Ricardo...), and how far can you travel for a pickup?
 - **Delivery country (always ask: it changes every total through shipping, VAT and customs) and the countries or sites you accept to buy from.** Online, shop, or try before buying?
 - When do you need it?
 

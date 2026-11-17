@@ -2,6 +2,11 @@
 
 All notable changes to this skill. Newest first. Versions up to 1.10.0 were published as the `sport` skill.
 
+## 2.1.0 (2026-11-17)
+- Marketplaces by region (Leboncoin, Facebook Marketplace, Vinted, Ricardo, tutti, anibis, Kleinanzeigen, Willhaben, Subito, Wallapop, Marktplaats...) with search link patterns and saved-search alerts (`references/core/marketplaces.md`).
+- Listing check mode: the client brings a listing (link, screenshot or text) and gets identification, fit and size check, wear, fair price, risks, verdict, questions and a ready-to-send message.
+- Interview asks which marketplaces the client uses and the pickup distance.
+
 ## 2.0.0 (2026-11-16)
 - **Renamed `sport` to `shopping`:** a shopping advisor for any category, with category packs in `references/categories/` (sport: tested; electronics, fashion and shoes, furniture and bedding: drafts built from sourced research). Unknown categories get a draft pack written during the session.
 - Core method moved to `references/core/` and made category-neutral (client profile instead of athlete profile).
