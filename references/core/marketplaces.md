@@ -24,7 +24,9 @@ Ask the client which ones they use and how far they can travel for a pickup (or 
 - anibis: `https://www.anibis.ch/fr/q/<q>`
 - Kleinanzeigen: `https://www.kleinanzeigen.de/s-<q>/k0`
 - eBay: `https://www.ebay.fr/sch/i.html?_nkw=<q>` (used only: add `&LH_ItemCondition=3000`)
-- Facebook Marketplace: `https://www.facebook.com/marketplace/<city>/search/?query=<q>` (search shows no listings without an account: the client searches, the skill checks the listing links they send)
+- Facebook Marketplace: `https://www.facebook.com/marketplace/<city>/search/?query=<q>`
+
+**Facebook Marketplace search (optional):** its search pages load listings with JavaScript, so a plain request gets none, but a headless browser gets the public listings shown to logged-out visitors. Run `~/.venvs/scrapling/bin/python -I <skill>/scripts/marketplace_search.py <city> "<query>" ["<query 2>"] [--match WORD]` (Obscura if installed, otherwise Scrapling; at most 3 searches per run, pauses, no login). It prints price, title, place and link per listing. Tested 2026-11-17: `lyon` returned French listings from the whole region. **Check the places:** an unknown city slug (for example `geneva`) silently falls back to a US city; then use a slug that works or the numeric city id from the client's own Marketplace address bar. Automated reading may go against Facebook's terms: sparing use. Check promising listings with `listing_preview.py`.
 
 **Leboncoin search (optional):** if `~/.venvs/lbc` exists (installed by `scripts/setup-leboncoin.sh`), the deals agent may run `~/.venvs/lbc/bin/python -I <skill>/scripts/leboncoin_search.py "<model size>" ["<query 2>"] [--max-price N]`: at most 3 searches per run and 35 ads each, pauses between searches, no proxy, no login. It prints title, price, city, date and link per ad. Tested 2026-11-17: works. It imitates the Leboncoin app to get past its robot protection, which is against Leboncoin's terms: use it sparingly, and on any block fall back to search links.
 

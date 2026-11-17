@@ -4,6 +4,7 @@ What real uses of the skill taught us (with the category). One entry per lesson,
 
 Format: `- YYYY-MM-DD · <sport> · <what happened> → <what changed in the skill>`
 
+- 2026-11-17 · all · Facebook Marketplace search looked impossible without an account with plain requests, but rendering its public search page with a headless browser lists local listings → marketplace_search.py; a tool that loses on one task (Obscura on protected shops) can win on another (JavaScript pages): use each where it is better.
 - 2026-11-17 · all · A faster headless browser (Obscura, non-stealth) lost on exactly the protected sites that matter; speed is not the bottleneck, access is → measure on real target pages before adopting a fetcher.
 - 2026-11-17 · all · Facebook Marketplace and Vinted listing links publish a public preview (OpenGraph, schema.org Product) readable without login, while search pages need an account → listing_preview.py reads links the client sends.
 - 2026-11-17 · sport · A boot flex was chosen from level and style alone; the client then said their current flex 5 boots already felt too soft → the sport pack now asks how the current gear feels and sets the target relative to it.

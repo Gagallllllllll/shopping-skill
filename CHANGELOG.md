@@ -2,6 +2,11 @@
 
 All notable changes to this skill. Newest first. Versions up to 1.10.0 were published as the `sport` skill.
 
+## 2.4.0 (2026-11-17)
+- Facebook Marketplace search without an account: `scripts/marketplace_search.py` renders the public search pages (Obscura, else Scrapling) and lists price, title, place and link. Tested around Lyon (19 to 24 listings per search). Unknown city slugs fall back to a US city: check the places.
+- Obscura adopted where it is better: `scripts/setup-obscura.sh` (pinned v0.2.7, non-stealth, SHA-256 checked); `shop_fetch.py` renders all pages in parallel with Obscura first and retries blocked pages with Scrapling.
+- Leboncoin search tested on real items (Photon BOA 43, D.O.A. 156, Union Strata): 3 to 10 relevant ads per search.
+
 ## 2.3.0 (2026-11-17)
 - Optional Leboncoin search with the unofficial `lbc` client (MIT, pinned 1.1.9; code read before install: only Leboncoin hosts, no telemetry): `scripts/setup-leboncoin.sh`, `scripts/leboncoin_search.py` (3 searches and 35 ads max per run, pauses, no proxy, no login). Tested: works.
 - Evaluated and not adopted: Obscura 0.2.7 non-stealth headless browser. On 8 shop pages it was about 7× faster in parallel and returned far less text, but was blocked on eBay, Ricardo and idealo, where Scrapling got through.

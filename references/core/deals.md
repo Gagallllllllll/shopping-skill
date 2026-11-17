@@ -78,7 +78,7 @@ Task:
 3. Check price history where available: is today low, normal or high?
 4. Find discounts and codes; mark each verified (seen on the shop's site) or not confirmed.
 5. Give a buy-now or wait recommendation per item, with the reason.
-6. Second-hand: on Leboncoin, use `scripts/leboncoin_search.py` if installed (rules in `references/core/marketplaces.md`), one run per item at most.
+6. Second-hand: on Facebook Marketplace use `scripts/marketplace_search.py` (city of the client), and on Leboncoin `scripts/leboncoin_search.py` if installed (rules in `references/core/marketplaces.md`), one run per item at most.
 7. List every site that blocked you. If `~/.venvs/scrapling` exists, retry blocked sites once with `scripts/shop_fetch.py` (rules in "Reading protected shops").
 Budget: stop after <N: 15 Quick / 25 Standard / 50 Deep> tool calls, or as soon as you have 5 new + 3 second-hand offers per item (Deep: 8 + 5); search second-hand for every item before stopping; start with price comparison sites, which list many shops on one page. Report what you have.
 Do not buy, log in, create accounts, subscribe or fill any form.

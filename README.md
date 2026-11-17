@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 ![Claude Code skill](https://img.shields.io/badge/Claude%20Code-skill-orange)
-![Version](https://img.shields.io/badge/version-2.3.0-green)
+![Version](https://img.shields.io/badge/version-2.4.0-green)
 
 **shopping** turns [Claude Code](https://docs.claude.com/en/docs/claude-code) into an expert from a specialist shop, with a research team behind it, in whatever category you need: sports gear, electronics, fashion and shoes, furniture and bedding, and more.
 
@@ -196,6 +196,7 @@ Local marketplaces (Leboncoin, Facebook Marketplace, Vinted, Ricardo, tutti, Kle
 - **Search links and alerts:** for each item, filtered search links for the marketplaces of your region, and which saved-search alerts to set.
 - **Listing check:** send a listing you found (link, screenshot or pasted text). For a link, `scripts/listing_preview.py` reads its public preview with no login (works for Facebook Marketplace listing links and Vinted; not Leboncoin, which blocks robots). The skill identifies the exact model, checks it against your profile and your size on the brand chart, judges wear and a fair price from comparable listings, flags scam signs, and gives you a verdict, the questions to ask, a target offer and a ready-to-send message. Works any time, even outside a full session.
 
+- **Facebook Marketplace search:** `scripts/marketplace_search.py` renders Marketplace's public search pages with a headless browser (Obscura or Scrapling) and lists price, title, place and link for a city and keyword, with no account. At most 3 searches per run. Automated reading may go against Facebook's terms: sparing use, your decision.
 - **Leboncoin search (optional):** `scripts/setup-leboncoin.sh` installs [lbc](https://github.com/etienne-hd/lbc) (unofficial client, MIT, pinned 1.1.9) in its own environment; the deals agent then searches Leboncoin itself (at most 3 searches per run, 35 ads each, pauses, no proxy, no login). **Know before you install:** lbc imitates the Leboncoin app to get past its robot protection, which is against Leboncoin's terms; your connection can be blocked for a while. Without it, you get search links instead.
 
 Details: [`references/core/marketplaces.md`](references/core/marketplaces.md).
@@ -228,7 +229,9 @@ The deals agents then retry blocked sites once with `scripts/shop_fetch.py`: at 
 
 **Know before you install:** some sites forbid automated reading in their terms or `robots.txt`. Using it there is your decision and your risk (for example a temporary block of your connection). Some sites stay blocked; you then get a ready-made search link.
 
-Without Scrapling, everything else works the same.
+**Faster first pass (optional):** `scripts/setup-obscura.sh` installs [Obscura](https://github.com/h4ckf0r0day/obscura) (Apache-2.0, pinned v0.2.7, non-stealth build, checksum verified). `shop_fetch.py` then renders all pages in parallel with Obscura and retries only the blocked ones with Scrapling. Measured on 8 shop pages: Obscura about 7× faster, Scrapling better on protected sites (eBay, Ricardo, idealo).
+
+Without Scrapling or Obscura, everything else works the same.
 
 ---
 
@@ -252,6 +255,8 @@ templates/buying-sheets.html     interactive buying sheets (fill the DATA object
 scripts/setup-scrapling.sh       optional: installs Scrapling in ~/.venvs/scrapling
 scripts/shop_fetch.py            optional: reads shop pages that block simple fetching
 scripts/listing_preview.py       reads a listing link's public preview (title, photo, price, condition), standard library only
+scripts/setup-obscura.sh         optional: installs Obscura (fast headless browser) in ~/.local/opt/obscura
+scripts/marketplace_search.py    optional: searches Facebook Marketplace by city and keyword, no account
 scripts/setup-leboncoin.sh       optional: installs lbc in ~/.venvs/lbc
 scripts/leboncoin_search.py      optional: searches Leboncoin (3 searches, 35 ads max per run)
 LESSONS.md                       lessons from real uses
