@@ -1,142 +1,143 @@
-# shopping · a professional shopping advisor for Claude Code
+<p align="center">
+  <img src="assets/banner.svg" alt="shopping: a professional shopping advisor for Claude Code" width="100%">
+</p>
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-![Claude Code skill](https://img.shields.io/badge/Claude%20Code-skill-orange)
-![Version](https://img.shields.io/badge/version-2.4.0-green)
+<p align="center">
+  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-2.4.1-D9481A" alt="Version 2.4.1"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-2C6A8F" alt="MIT license"></a>
+  <a href="https://docs.claude.com/en/docs/claude-code"><img src="https://img.shields.io/badge/Claude%20Code-skill-0F1A22" alt="Claude Code skill"></a>
+  <a href="references/categories"><img src="https://img.shields.io/badge/category%20packs-4-2F7A4B" alt="4 category packs"></a>
+  <a href="CONTRIBUTING.md"><img src="https://img.shields.io/badge/PRs-welcome-56687A" alt="Pull requests welcome"></a>
+</p>
 
-**shopping** turns [Claude Code](https://docs.claude.com/en/docs/claude-code) into an expert from a specialist shop, with a research team behind it, in whatever category you need: sports gear, electronics, fashion and shoes, furniture and bedding, and more.
+<p align="center">
+  <b>An expert from a specialist shop, with a research team behind it, inside Claude Code.</b><br>
+  It interviews you, works out what fits <i>you</i>, searches tests, forums, shops and second-hand marketplaces,<br>
+  and hands you the best delivered price, ready-to-send seller messages and interactive buying sheets.
+</p>
 
-You say what you need ("I need a laptop for photo editing", "a new snowboard set for this winter", "a mattress for a back sleeper"). It asks you the right questions, works out the specs and sizes that fit you, searches the web (tests, user forums, brand specs, shops and second-hand sites), finds the best delivered price and current discounts, checks official recall lists, and gives you:
-
-1. a **shortlist page**: your profile, 3 to 4 complete options side by side, a comparison table and sources;
-2. **buying sheets**: once you pick an option, one page per item with every offer found, sorted by the real delivered price, new or second-hand, plus what to check before buying.
-
-> This skill was called **sport** until version 1.10.0. Sport is now one of its category packs.
-
----
-
-## Contents
-
-- [Categories](#categories)
-- [What a session looks like](#what-a-session-looks-like)
-- [Install](#install)
-- [Use](#use)
-- [What you get](#what-you-get)
-- [The buying sheets template](#the-buying-sheets-template)
-- [Marketplaces and listing check](#marketplaces-and-listing-check)
-- [Search depth](#search-depth)
-- [Optional: reading shops that block robots](#optional-reading-shops-that-block-robots)
-- [It improves itself](#it-improves-itself)
-- [Files](#files)
-- [Safety and privacy](#safety-and-privacy)
-- [FAQ](#faq)
-- [Contributing](#contributing) · [License](#license)
+<p align="center">
+  <a href="#quick-start">Quick start</a> ·
+  <a href="#how-it-works">How it works</a> ·
+  <a href="#categories">Categories</a> ·
+  <a href="#second-hand-marketplaces">Marketplaces</a> ·
+  <a href="#buying-sheets">Buying sheets</a> ·
+  <a href="#faq">FAQ</a>
+</p>
 
 ---
 
-## Categories
-
-Each category has a **pack** in `references/categories/`: the questions that matter, the rules to turn needs into specs and sizes, trusted sources, price and timing tips, second-hand checks, legal points and traps.
-
-| Pack | Covers | Status |
-|---|---|---|
-| [`sport`](references/categories/sport.md) | sports gear for any sport | tested on a real purchase |
-| [`electronics`](references/categories/electronics.md) | laptops, phones, tablets, TVs, audio, cameras | draft |
-| [`fashion`](references/categories/fashion.md) | clothing, shoes, bags | draft |
-| [`furniture`](references/categories/furniture.md) | sofas, mattresses, beds, desks, office chairs, storage | draft |
-
-**Another category?** It still works: the skill uses the core method and writes a **draft pack** for that category during the session, which improves with each use.
-
-**Draft** packs were built from research and mark every fact as verified or not confirmed. They become **tested** after real use.
-
-**Sensitive categories** (medicines and supplements, medical devices, child car seats, weapons, financial products) get general information and official sources only, never a "best for you" ranking.
-
----
-
-## What a session looks like
-
-| Step | What happens | What you do |
-|---|---|---|
-| **0. Category** | The skill picks the category pack (or two, for example running shoes for daily wear). | Nothing. |
-| **1. Interview** | Up to 3 short rounds of questions: what you need, how you'll use it, sizes or measurements, budget, **delivery country**, new or second-hand, and how deep to search. Each question has a suggested answer. | Answer, or say "ok" to accept the suggestion. |
-| **2. Your profile** | A written profile with the target specs and why. | Confirm or correct it. Nothing is recommended before you confirm. |
-| **3. Research** | 3 to 4 research agents search at the same time: independent tests, user communities, brand specs, shops. Each model needs 2 independent sources. | Wait a few minutes. |
-| **4. Best price** | Deals agents compare the **delivered price** (item + shipping + VAT and customs) across shops (and their other country sites), comparison sites, outlets, refurbished and second-hand. They find discount codes and sales, check official recall lists, and say **buy now** or **wait**. | Wait a few minutes. |
-| **5. Shortlist page** | Your options side by side, the recommended one highlighted. | Pick an option. |
-| **6. Buying sheets** | One sheet per item, new or second-hand, every offer by site, plus ready-to-send messages for second-hand sellers. | Choose, check, buy on the shop's site yourself. |
-
-Every price and fact is marked **verified** (seen on the page today), **recommendation** (expert advice) or **not confirmed**.
-
----
-
-## Install
-
-You need [Claude Code](https://docs.claude.com/en/docs/claude-code) and `git`.
+## Quick start
 
 ```bash
 git clone https://github.com/Gagallllllllll/shopping-skill ~/.claude/skills/shopping
 ```
 
-Restart Claude Code.
+Restart Claude Code, then just ask:
 
-**Update** at any time:
+> I need a new snowboard set for this winter, delivered to France.
 
-```bash
-git -C ~/.claude/skills/shopping pull
+> Which laptop for photo editing, around 1,200 euros?
+
+> Is this a good deal? https://www.facebook.com/marketplace/item/...
+
+Or type `/shopping`. Update any time with `git -C ~/.claude/skills/shopping pull`.
+
+> [!NOTE]
+> This skill was called **sport** until version 1.10.0. Sport is now one of its category packs. Old links to `sport-skill` redirect here.
+
+---
+
+## Why
+
+Buying well takes hours: reading tests, decoding sizes, comparing shops, adding shipping and customs, checking second-hand listings for scams. Most "best of" lists are affiliate rankings. **shopping** does that work like a specialist would, for your profile, and shows its sources.
+
+| | Typical buying guide | **shopping** |
+|---|---|---|
+| Recommendation | "best overall" | best **for you**, from a validated profile |
+| Size | generic chart | brand chart, mid-range rule, conflicts explained |
+| Price | list price | **delivered** price (shipping, VAT, customs), price history, discount codes checked |
+| Second-hand | rarely | Leboncoin, Facebook Marketplace, Vinted, Ricardo, eBay... with scam checks |
+| Sources | hidden | every claim marked *verified*, *recommendation* or *not confirmed* |
+
+---
+
+## How it works
+
+```mermaid
+flowchart LR
+  A[Interview] --> B[Profile and target specs]
+  B -->|you confirm| C[Parallel research]
+  C --> D[Best price hunt]
+  D --> E[Shortlist page]
+  E -->|you pick| F[Buying sheets]
+  F --> G[Self-improvement]
 ```
 
-**Coming from the old `sport` skill?** Remove `~/.claude/skills/sport` and install as above.
+| Step | What happens | What you do |
+|---|---|---|
+| **1. Interview** | Up to 3 short rounds of questions with suggested answers: need, use, sizes, budget, **delivery country**, marketplaces you use, search depth. | Answer, or say "ok". |
+| **2. Profile** | Target specs with the reasoning. Nothing is recommended before you confirm. | Confirm or correct. |
+| **3. Research** | 3 to 4 agents in parallel: independent tests, user communities, brand specs, shops. 2 independent sources per model. | Wait a few minutes. |
+| **4. Best price** | Delivered price across shops (and their other country sites), comparison sites, outlets, refurbished and second-hand; price history, discount codes, **official recall check**, buy now or wait. | Wait a few minutes. |
+| **5. Shortlist** | Options side by side, recommended one highlighted, comparison table, sources. | Pick an option. |
+| **6. Buying sheets** | One sheet per item with every offer, seller messages, checklists. | Buy on the shop's site yourself. |
+
+**Listing check, any time:** send a listing you found (link, screenshot or text). You get the exact model, fit and size check, wear, fair price, scam signs, a verdict, questions to ask and a message ready to send.
 
 ---
 
-## Use
+## Categories
 
-Describe your need in plain words:
+Each category has a **pack** in [`references/categories/`](references/categories): questions that matter, rules to turn needs into specs and sizes, trusted sources, price and timing, second-hand checks, legal points and traps.
 
-> I need a new snowboard set for this winter.
+| Pack | Covers | Status |
+|---|---|---|
+| [`sport`](references/categories/sport.md) | sports gear for any sport | **tested** on a real purchase |
+| [`electronics`](references/categories/electronics.md) | laptops, phones, tablets, TVs, audio, cameras | draft |
+| [`fashion`](references/categories/fashion.md) | clothing, shoes, bags | draft |
+| [`furniture`](references/categories/furniture.md) | sofas, mattresses, beds, desks, office chairs | draft |
+| *any other* | the skill writes a draft pack during the session | draft |
 
-> Which laptop for photo editing, around 1,200 euros, delivered to Switzerland?
-
-> I'm looking for a sofa that fits through a 78 cm door.
-
-> Help me find second-hand leather boots, size 43.
-
-Or type `/shopping`.
+*Draft* packs were built from sourced research and mark every fact as verified or not confirmed; they become *tested* after real use. **Sensitive categories** (medicines and supplements, medical devices, child car seats, weapons, financial products) get general information and official sources only.
 
 ---
 
-## What you get
+## Second-hand marketplaces
 
-### Shortlist page
+Local marketplaces often have the best finds. The skill never logs in or creates accounts.
 
-- Your profile and target specs.
-- 3 to 4 **complete options** as cards (for example *Best fit*, *Budget*, *Second-hand or refurbished*, *Premium*), each with sizes or variants, total price, why it fits you and what to watch out for.
-- A comparison table, the reasoning (including where sources disagreed), tips, and all sources.
+| Marketplace | How the skill uses it | Tool |
+|---|---|---|
+| **Facebook Marketplace** | searches by city and keyword through the public search page (no account) and reads listing links you send | `marketplace_search.py`, `listing_preview.py` |
+| **Leboncoin** | searches ads (optional add-on) | `leboncoin_search.py` |
+| **Vinted, eBay, Ricardo, tutti, anibis, Kleinanzeigen, Subito, Wallapop, Marktplaats...** | reads search pages and listings, or gives you filtered search links and alerts to set | `shop_fetch.py`, `listing_preview.py` |
 
-### Buying sheets
+Details and search link patterns: [`references/core/marketplaces.md`](references/core/marketplaces.md).
+
+---
+
+## Buying sheets
+
+<p align="center">
+  <img src="assets/buying-sheets.png" alt="Buying sheets page with example data: option picker, delivery country switch, set total, New or Second-hand switch per item, bindings model switch, offers sorted by delivered price" width="100%">
+  <br><sub>Screenshot with example data (placeholder shops and prices).</sub>
+</p>
 
 | Feature | What it does |
 |---|---|
-| **Option picker** | Switch between the shortlist options. Once you pick exact listings, a **Your picks** option tracks them. |
-| **Delivery country switch** | For example *France €* / *Switzerland CHF*. Totals and the order of offers change with it. |
-| **Model switch** | Where the shortlist has alternatives, switch the model inside the set. |
-| **New / Second-hand per item** | Mix new and second-hand. The set total updates live against your budget. |
-| **One sheet per item** | Every offer found, sorted by delivered price, best one highlighted. Offers whose size isn't confirmed, and brand list prices, never count as best. |
-| **Buy now or wait** | Per item, with the reason. |
-| **Specs and size** | Why this size or variant fits you. |
-| **Before you buy** | A checklist for new or second-hand. |
-| **Deadlines** | Sales and auctions ending soon. |
+| **Option picker** | Switch between the shortlist options; a **Your picks** option tracks the exact listings you choose. |
+| **Delivery country switch** | For example *France €* / *Switzerland CHF*: totals and the order of offers follow. |
+| **Model switch** | Compare alternatives inside a set (for example strap or quick-entry bindings). |
+| **New / Second-hand per item** | Mix freely; the set total updates live against your budget. |
+| **One sheet per item** | Every offer sorted by delivered price. Offers with an unconfirmed size, and brand list prices, never count as best. |
+| **Buy now or wait · Specs and size · Checklist** | Per item, for new or second-hand. |
 | **Print or save PDF** | One clean sheet per page. |
 
----
+The page is built from [`templates/buying-sheets.html`](templates/buying-sheets.html), a single HTML file with no install. Fill its `DATA` object to make your own:
 
-## The buying sheets template
-
-The buying sheets are built from [`templates/buying-sheets.html`](templates/buying-sheets.html), a single HTML file that works in any browser with no install. Claude fills it for you, and you can fill it yourself.
-
-**See it:** open the file in a browser (placeholder data).
-
-**Fill it:** open it in a text editor and find `const DATA = {`. Everything the page shows comes from this object:
+<details>
+<summary><b>DATA field reference</b></summary>
 
 ```js
 const DATA = {
@@ -146,7 +147,7 @@ const DATA = {
       kind: "Board",                     // category shown above the name
       short: "Straps · Brand Model",     // optional: label on the model switch
       name: "Brand Model",
-      size: "156 cm",                    // the size or variant recommended for this person
+      size: "156 cm",                    // the size or variant recommended
       specs: ["True twin", "Flex 5/10"], // short chips
       fit: "Why this size and model fit.",
       advice: {
@@ -183,127 +184,109 @@ const DATA = {
 };
 ```
 
-**Other countries:** the switch has two buttons, `data-c="fr"` and `data-c="ch"`. Rename them and use the same keys in each offer (for example `de` and `uk`).
+**Other countries:** rename the two switch buttons (`data-c="fr"`, `data-c="ch"`) and use the same keys in each offer. **Deadlines and blocked sites:** edit the `deadlines` section and the last footer line.
 
-**Deadlines and blocked sites:** edit the `deadlines` section and the last footer line in the HTML.
-
----
-
-## Marketplaces and listing check
-
-Local marketplaces (Leboncoin, Facebook Marketplace, Vinted, Ricardo, tutti, Kleinanzeigen, Subito, Wallapop...) often have the best second-hand finds. Many block robots or need an account, and the skill never logs in for you, so:
-
-- **Search links and alerts:** for each item, filtered search links for the marketplaces of your region, and which saved-search alerts to set.
-- **Listing check:** send a listing you found (link, screenshot or pasted text). For a link, `scripts/listing_preview.py` reads its public preview with no login (works for Facebook Marketplace listing links and Vinted; not Leboncoin, which blocks robots). The skill identifies the exact model, checks it against your profile and your size on the brand chart, judges wear and a fair price from comparable listings, flags scam signs, and gives you a verdict, the questions to ask, a target offer and a ready-to-send message. Works any time, even outside a full session.
-
-- **Facebook Marketplace search:** `scripts/marketplace_search.py` renders Marketplace's public search pages with a headless browser (Obscura or Scrapling) and lists price, title, place and link for a city and keyword, with no account. At most 3 searches per run. Automated reading may go against Facebook's terms: sparing use, your decision.
-- **Leboncoin search (optional):** `scripts/setup-leboncoin.sh` installs [lbc](https://github.com/etienne-hd/lbc) (unofficial client, MIT, pinned 1.1.9) in its own environment; the deals agent then searches Leboncoin itself (at most 3 searches per run, 35 ads each, pauses, no proxy, no login). **Know before you install:** lbc imitates the Leboncoin app to get past its robot protection, which is against Leboncoin's terms; your connection can be blocked for a while. Without it, you get search links instead.
-
-Details: [`references/core/marketplaces.md`](references/core/marketplaces.md).
+</details>
 
 ---
 
 ## Search depth
 
-You choose how deep the research goes at the end of the interview:
+You choose how deep the research goes:
 
 | Depth | Research agent | Deals agent | Second-hand | Best for |
 |---|---|---|---|---|
 | **Quick** | 12 tool calls | 15 | top 2 sites | small purchase, in a hurry |
 | **Standard** (default) | 20 | 25 | main sites | most purchases |
-| **Deep** | 40 | 50 | every site, one extra pass per item | expensive or rare items |
+| **Deep** | 40 | 50 | every site, extra pass per item | expensive or rare items |
 
-Agents stop early once they have enough and run on a lighter model (Sonnet). If a budget runs out, you get partial results, a list of what is missing, and the option to extend the search for just that gap.
+Agents stop early once they have enough and run on a lighter model (Sonnet). If a budget runs out you get partial results, what is missing, and the option to extend for just that gap.
 
 ---
 
-## Optional: reading shops that block robots
+## Optional add-ons
 
-Some shops and marketplaces block automated reading. You can install [Scrapling](https://github.com/D4Vinci/Scrapling) (BSD-3 license, pinned to version 0.5.1) in its own environment:
+Everything works without them; they give access to sites that block simple reading.
 
-```bash
-~/.claude/skills/shopping/scripts/setup-scrapling.sh
-```
+| Add-on | Install | Gives | Know before you install |
+|---|---|---|---|
+| [Scrapling](https://github.com/D4Vinci/Scrapling) 0.5.1 (BSD-3) | `scripts/setup-scrapling.sh` | reads protected shops (eBay, idealo, Ricardo...) and renders Facebook Marketplace search | some sites forbid automated reading in their terms |
+| [Obscura](https://github.com/h4ckf0r0day/obscura) 0.2.7 (Apache-2.0, non-stealth build, checksum verified) | `scripts/setup-obscura.sh` | fast parallel first pass (about 7× faster on 8 shop pages); blocked pages fall back to Scrapling automatically | young project, prebuilt binary |
+| [lbc](https://github.com/etienne-hd/lbc) 1.1.9 (MIT) | `scripts/setup-leboncoin.sh` | Leboncoin search | imitates the Leboncoin app to pass its robot protection: against Leboncoin's terms, your connection can be blocked for a while |
 
-The deals agents then retry blocked sites once with `scripts/shop_fetch.py`: at most 10 pages per run, pauses between pages, no login, no proxy, no paid bypass service.
-
-**Know before you install:** some sites forbid automated reading in their terms or `robots.txt`. Using it there is your decision and your risk (for example a temporary block of your connection). Some sites stay blocked; you then get a ready-made search link.
-
-**Faster first pass (optional):** `scripts/setup-obscura.sh` installs [Obscura](https://github.com/h4ckf0r0day/obscura) (Apache-2.0, pinned v0.2.7, non-stealth build, checksum verified). `shop_fetch.py` then renders all pages in parallel with Obscura and retries only the blocked ones with Scrapling. Measured on 8 shop pages: Obscura about 7× faster, Scrapling better on protected sites (eBay, Ricardo, idealo).
-
-Without Scrapling or Obscura, everything else works the same.
+All add-ons are pinned, run in their own folder, and are used with built-in limits: a few pages or searches per run, pauses, no login, no proxy, no paid bypass service.
 
 ---
 
 ## It improves itself
 
-After each session the skill notes what worked and what did not. Real lessons go into [`LESSONS.md`](LESSONS.md); category knowledge goes into the category pack, method fixes into `references/core/`. The version goes up in [`CHANGELOG.md`](CHANGELOG.md) and the change is published here. Lessons are always generic: never a name, a size, a place or a budget from a conversation.
+After each session the skill notes what worked and what did not. Real lessons go into [`LESSONS.md`](LESSONS.md); category knowledge goes into the pack, method fixes into [`references/core/`](references/core). The version goes up in [`CHANGELOG.md`](CHANGELOG.md) and the change is published here. Lessons are always generic: never a name, a size, a place or a budget.
 
 ---
 
-## Files
+## Repository layout
 
 ```
-SKILL.md                         the method: category, interview, research, best price, report, self-improvement, rules
-references/core/interview.md     question bank for every category + client profile template
-references/core/research.md      source types, research agent brief, merging rules, report outline
-references/core/deals.md         best price, discounts, recalls + deals agent brief
-references/core/marketplaces.md  marketplaces by region, search links, listing check
-references/core/report-design.md how the shortlist page and buying sheets are laid out
-references/categories/*.md       category packs (sport, electronics, fashion, furniture)
-templates/buying-sheets.html     interactive buying sheets (fill the DATA object)
-scripts/setup-scrapling.sh       optional: installs Scrapling in ~/.venvs/scrapling
-scripts/shop_fetch.py            optional: reads shop pages that block simple fetching
-scripts/listing_preview.py       reads a listing link's public preview (title, photo, price, condition), standard library only
-scripts/setup-obscura.sh         optional: installs Obscura (fast headless browser) in ~/.local/opt/obscura
-scripts/marketplace_search.py    optional: searches Facebook Marketplace by city and keyword, no account
-scripts/setup-leboncoin.sh       optional: installs lbc in ~/.venvs/lbc
-scripts/leboncoin_search.py      optional: searches Leboncoin (3 searches, 35 ads max per run)
-LESSONS.md                       lessons from real uses
-CHANGELOG.md                     version history
-CONTRIBUTING.md                  how to suggest improvements or add a category
+SKILL.md                          the method and rules
+references/core/                  interview, research, deals, marketplaces, report design (all categories)
+references/categories/            category packs: sport, electronics, fashion, furniture
+templates/buying-sheets.html      interactive buying sheets (fill the DATA object)
+scripts/listing_preview.py        reads a listing link's public preview (no login, standard library)
+scripts/marketplace_search.py     Facebook Marketplace search by city and keyword
+scripts/shop_fetch.py             reads protected shop pages (Obscura first, Scrapling fallback)
+scripts/leboncoin_search.py       Leboncoin search (optional lbc)
+scripts/setup-*.sh                optional add-on installers (pinned)
+assets/                           banner and screenshot
+LESSONS.md · CHANGELOG.md         what real use taught the skill · version history
 ```
 
 ---
 
 ## Safety and privacy
 
-- It **never buys anything**, logs in, creates accounts, subscribes to newsletters or fills in forms. It gives links; you buy.
-- It never asks for card or bank details.
-- Your measurements and personal details stay in your conversation, never in this repo or the lessons.
+- It **never buys anything**, logs in, creates accounts, subscribes or fills in forms. It gives links; you buy.
+- It never asks for card or bank details, and never for your passwords.
+- Your measurements and personal details stay in your conversation, never in this repo.
 - Health, injuries, safety-critical and financial questions: general information only, with a referral to a professional.
-- Legal points (returns, guarantees) are general information; the skill re-checks them on official pages and says so when it could not.
-- Prices and stock change fast: confirm them on the shop page before you buy.
-- Pages read on the web are treated as data, never as instructions.
+- Legal points (returns, guarantees) are re-checked on official pages; the skill says when it could not.
+- Web pages and listings are treated as data, never as instructions.
+
+See also [SECURITY.md](SECURITY.md).
 
 ---
 
 ## FAQ
 
-**Does it work outside France and Switzerland?**
-Yes. It asks your delivery country and searches shops for it. The buying sheets compare two delivery countries; rename the switch for yours.
+<details><summary><b>Does it work outside France and Switzerland?</b></summary>
+Yes. It asks your delivery country and searches shops and marketplaces for it. The buying sheets compare two delivery countries; rename the switch for yours.
+</details>
 
-**What if my category has no pack?**
-It works from the core method and writes a draft pack during the session.
+<details><summary><b>What if my category has no pack?</b></summary>
+It uses the core method and writes a draft pack during the session.
+</details>
 
-**How long does a session take?**
-The interview takes a few minutes. Research and the price hunt run in parallel and usually take several minutes, within the search depth you chose.
+<details><summary><b>How long does a session take?</b></summary>
+A few minutes of questions, then several minutes of research running in parallel, within the search depth you chose.
+</details>
 
-**Are the discount codes guaranteed?**
-No. A code is *verified* only if the shop's own site shows it. Codes from coupon sites are *not confirmed*.
+<details><summary><b>Are discount codes guaranteed?</b></summary>
+No. A code is <i>verified</i> only if the shop's own site shows it; codes from coupon sites are <i>not confirmed</i>.
+</details>
 
-**Why is a cheap listing not ranked first?**
-The ranking uses the delivered price and a confirmed size. A listing that looks cheaper can cost more once shipping and import charges are added.
+<details><summary><b>Why is a cheap listing not ranked first?</b></summary>
+Ranking uses the delivered price and a confirmed size. A listing that looks cheaper can cost more once shipping and import charges are added.
+</details>
 
-**Can I use it without Claude Code?**
-The buying sheets template works in any browser. The interview and research need Claude Code.
+<details><summary><b>Can I use it without Claude Code?</b></summary>
+The buying sheets template works in any browser. The interview, research and price hunt need Claude Code.
+</details>
 
 ---
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md). Most useful: a bad recommendation, a missing question, a weak source, a new category pack. Remove personal data before posting.
+Contributions are welcome, especially from real purchases: a bad recommendation, a missing question, a weak source, a new category pack. See [CONTRIBUTING.md](CONTRIBUTING.md) and use the [issue templates](.github/ISSUE_TEMPLATE). Remove personal data before posting.
 
 ## License
 
-[MIT](LICENSE)
+[MIT](LICENSE) © 2026 Gagallllllllll

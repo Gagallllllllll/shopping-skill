@@ -2,6 +2,10 @@
 
 All notable changes to this skill. Newest first. Versions up to 1.10.0 were published as the `sport` skill.
 
+## 2.4.1 (2026-11-17)
+- Professional README: banner, badges, comparison table, flow diagram, marketplaces table, screenshot of the buying sheets with example data, optional add-ons table, FAQ.
+- Issue templates, pull request template, SECURITY.md.
+
 ## 2.4.0 (2026-11-17)
 - Facebook Marketplace search without an account: `scripts/marketplace_search.py` renders the public search pages (Obscura, else Scrapling) and lists price, title, place and link. Tested around Lyon (19 to 24 listings per search). Unknown city slugs fall back to a US city: check the places.
 - Obscura adopted where it is better: `scripts/setup-obscura.sh` (pinned v0.2.7, non-stealth, SHA-256 checked); `shop_fetch.py` renders all pages in parallel with Obscura first and retries blocked pages with Scrapling.
