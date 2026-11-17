@@ -2,6 +2,9 @@
 
 All notable changes to this skill. Newest first. Versions up to 1.10.0 were published as the `sport` skill.
 
+## 2.4.2 (2026-11-17)
+- `marketplace_search.py` warns when Facebook fell back to a US city (unknown slug) and suggests generic queries when a model name returns nothing.
+
 ## 2.4.1 (2026-11-17)
 - Professional README: banner, badges, comparison table, flow diagram, marketplaces table, screenshot of the buying sheets with example data, optional add-ons table, FAQ.
 - Issue templates, pull request template, SECURITY.md.

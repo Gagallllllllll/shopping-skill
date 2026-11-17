@@ -68,7 +68,11 @@ def main():
         print(f"== {q} ({city})")
         rows = list(listings(render(url, tmp), match))
         if not rows:
-            print(f"   nothing found or blocked: give the client this link: {url}")
+            print(f"   nothing found or blocked: try a more generic query (\"boots snowboard 43\" rather than a model name), or give the client this link: {url}")
+        elif sum("$" in t for t, _ in rows) > len(rows) / 2:
+            print(f"   WARNING: most listings are priced in $: Facebook did not recognise the city '{city}' and fell back to a US city. "
+                  "Use a city that works (for example lyon) or the numeric city id from the client's Marketplace address bar.")
+            continue
         for text, link in rows[:40]:
             print(f"   - {text} | {link}")
 
