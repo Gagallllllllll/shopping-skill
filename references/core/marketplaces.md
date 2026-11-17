@@ -26,6 +26,8 @@ Ask the client which ones they use and how far they can travel for a pickup (or 
 - eBay: `https://www.ebay.fr/sch/i.html?_nkw=<q>` (used only: add `&LH_ItemCondition=3000`)
 - Facebook Marketplace: `https://www.facebook.com/marketplace/<city>/search/?query=<q>` (search shows no listings without an account: the client searches, the skill checks the listing links they send)
 
+**Leboncoin search (optional):** if `~/.venvs/lbc` exists (installed by `scripts/setup-leboncoin.sh`), the deals agent may run `~/.venvs/lbc/bin/python -I <skill>/scripts/leboncoin_search.py "<model size>" ["<query 2>"] [--max-price N]`: at most 3 searches per run and 35 ads each, pauses between searches, no proxy, no login. It prints title, price, city, date and link per ad. Tested 2026-11-17: works. It imitates the Leboncoin app to get past its robot protection, which is against Leboncoin's terms: use it sparingly, and on any block fall back to search links.
+
 In the report and buying sheets, give one link per item and marketplace, and tell the client which **saved-search alerts** to set (most marketplaces notify new listings for a saved search).
 
 ## Listing check (the client brings a listing)

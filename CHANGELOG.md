@@ -2,6 +2,10 @@
 
 All notable changes to this skill. Newest first. Versions up to 1.10.0 were published as the `sport` skill.
 
+## 2.3.0 (2026-11-17)
+- Optional Leboncoin search with the unofficial `lbc` client (MIT, pinned 1.1.9; code read before install: only Leboncoin hosts, no telemetry): `scripts/setup-leboncoin.sh`, `scripts/leboncoin_search.py` (3 searches and 35 ads max per run, pauses, no proxy, no login). Tested: works.
+- Evaluated and not adopted: Obscura 0.2.7 non-stealth headless browser. On 8 shop pages it was about 7× faster in parallel and returned far less text, but was blocked on eBay, Ricardo and idealo, where Scrapling got through.
+
 ## 2.2.0 (2026-11-17)
 - `scripts/listing_preview.py`: reads the public preview of a listing link (OpenGraph tags and schema.org Product data: title, description, photo, price, condition) with an honest User-Agent, no login, no dependency. Tested on Facebook Marketplace and Vinted listings; Leboncoin answers 403. Idea credited to ChocoData's MIT Facebook Marketplace scraper.
 - Listing check runs it first on any link.
