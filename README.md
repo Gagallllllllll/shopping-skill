@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-2.4.2-D9481A" alt="Version 2.4.2"></a>
+  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-2.4.3-D9481A" alt="Version 2.4.3"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-2C6A8F" alt="MIT license"></a>
   <a href="https://docs.claude.com/en/docs/claude-code"><img src="https://img.shields.io/badge/Claude%20Code-skill-0F1A22" alt="Claude Code skill"></a>
   <a href="references/categories"><img src="https://img.shields.io/badge/category%20packs-4-2F7A4B" alt="4 category packs"></a>

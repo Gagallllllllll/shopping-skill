@@ -81,6 +81,8 @@ def main():
         i = args.index("--match"); match = args[i + 1]; del args[i:i + 2]
     if len(args) < 2:
         sys.exit(__doc__)
+    if "://" in args[0]:
+        sys.exit("First argument is the output folder, not a URL.\n" + __doc__)
     out_dir, urls = Path(args[0]), args[1:]
     if len(urls) > MAX_PAGES:
         sys.exit(f"At most {MAX_PAGES} pages per run (got {len(urls)}).")

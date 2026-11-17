@@ -22,7 +22,7 @@ landed price = item price - confirmed discount + shipping + import VAT / duties 
 | Price history (comparison sites with history graphs, marketplace price trackers) | Whether today's price is low, normal or high for this item; the usual low point |
 | Shops directly | Sale pages, outlet section, "last season" or previous-year model, bundles (check that bundled items fit the profile) |
 | Brand outlets and brand stores | End-of-line colours, previous season |
-| Test, demo, ex-rental, ex-display or refurbished | Test fleets, showroom pieces, manufacturer or certified refurbished (check the warranty) |
+| Test, demo, ex-rental, ex-display or refurbished | Test fleets, showroom pieces, manufacturer or certified refurbished (check the warranty). For a model new this season, private second-hand barely exists yet: search shops selling test units on marketplaces (Leboncoin pro sellers), often 25 to 30% under new |
 | Second-hand marketplaces in the region | Fair price range from several listings, condition, seller history |
 | Same shop, other country sites | Many shops run several country sites (.com, .de, .ch...) with different prices and shipping rules; check them for the client's delivery country |
 | Price-match policies | Shops that match a competitor's price: name the policy page |

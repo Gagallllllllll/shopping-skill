@@ -2,6 +2,10 @@
 
 All notable changes to this skill. Newest first. Versions up to 1.10.0 were published as the `sport` skill.
 
+## 2.4.3 (2026-11-17)
+- deals.md: for a model new this season, look for shop test units on marketplaces (private second-hand barely exists yet).
+- `shop_fetch.py` refuses a URL as its first argument (the output folder), which used to write pages into the current folder.
+
 ## 2.4.2 (2026-11-17)
 - `marketplace_search.py` warns when Facebook fell back to a US city (unknown slug) and suggests generic queries when a model name returns nothing.
 

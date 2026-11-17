@@ -4,6 +4,7 @@ What real uses of the skill taught us (with the category). One entry per lesson,
 
 Format: `- YYYY-MM-DD · <category> · <what happened> → <what changed in the skill>`
 
+- 2026-11-17 · sport · A binding new this season had no private second-hand offer anywhere (Vinted, Ricardo, Marketplace); the only used pair was a shop's test unit on Leboncoin, 28% under new. Facebook share links resolve to the listing but hide the price → deals.md points to shop test units for new-season models; ask the client for the price of a Facebook listing.
 - 2026-11-17 · sport · Facebook Marketplace returned nothing for model names around Lyon but many listings for generic queries, and an unknown city slug silently showed California → automatic warning and generic-query advice. Leboncoin and Vinted gave the best second-hand finds for the set.
 - 2026-11-17 · all · Facebook Marketplace search looked impossible without an account with plain requests, but rendering its public search page with a headless browser lists local listings → marketplace_search.py; a tool that loses on one task (Obscura on protected shops) can win on another (JavaScript pages): use each where it is better.
 - 2026-11-17 · all · A faster headless browser (Obscura, non-stealth) lost on exactly the protected sites that matter; speed is not the bottleneck, access is → measure on real target pages before adopting a fetcher.
