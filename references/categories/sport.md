@@ -10,6 +10,9 @@ Sports gear for any sport: snowboard, ski, running, cycling, climbing, surf, rac
 - Goals for the next 1 to 2 seasons: progress, comfort, performance, competition, fun.
 - Style or discipline as a split: "out of 10 sessions, how many on X, Y, Z?"
 
+**Current gear as the reference**
+- Current model of each item, its flex or stiffness if known, and how it feels: too soft, right, too stiff, and where (for boots: ankle folding on landings, lack of power when carving, foot pain). Set the target **relative to the current gear** (for example "flex 5 feels too soft" → target about 6.5 to 7.5), not only from the level and style.
+
 **Body and fit**
 - Height, weight, dominant side or stance if relevant.
 - Shoe size and foot shape (wide, narrow, high instep); inseam and arm length for bikes; hand size for rackets and gloves.
