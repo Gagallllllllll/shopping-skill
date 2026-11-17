@@ -2,6 +2,10 @@
 
 All notable changes to this skill. Newest first. Versions up to 1.10.0 were published as the `sport` skill.
 
+## 2.2.0 (2026-11-17)
+- `scripts/listing_preview.py`: reads the public preview of a listing link (OpenGraph tags and schema.org Product data: title, description, photo, price, condition) with an honest User-Agent, no login, no dependency. Tested on Facebook Marketplace and Vinted listings; Leboncoin answers 403. Idea credited to ChocoData's MIT Facebook Marketplace scraper.
+- Listing check runs it first on any link.
+
 ## 2.1.1 (2026-11-17)
 - Sport pack: the interview asks the current gear's flex and how it feels, and sets the target relative to it.
 

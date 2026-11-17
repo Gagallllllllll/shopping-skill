@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 ![Claude Code skill](https://img.shields.io/badge/Claude%20Code-skill-orange)
-![Version](https://img.shields.io/badge/version-2.1.1-green)
+![Version](https://img.shields.io/badge/version-2.2.0-green)
 
 **shopping** turns [Claude Code](https://docs.claude.com/en/docs/claude-code) into an expert from a specialist shop, with a research team behind it, in whatever category you need: sports gear, electronics, fashion and shoes, furniture and bedding, and more.
 
@@ -194,7 +194,7 @@ const DATA = {
 Local marketplaces (Leboncoin, Facebook Marketplace, Vinted, Ricardo, tutti, Kleinanzeigen, Subito, Wallapop...) often have the best second-hand finds. Many block robots or need an account, and the skill never logs in for you, so:
 
 - **Search links and alerts:** for each item, filtered search links for the marketplaces of your region, and which saved-search alerts to set.
-- **Listing check:** send a listing you found (link, screenshot or pasted text). The skill identifies the exact model, checks it against your profile and your size on the brand chart, judges wear and a fair price from comparable listings, flags scam signs, and gives you a verdict, the questions to ask, a target offer and a ready-to-send message. Works any time, even outside a full session.
+- **Listing check:** send a listing you found (link, screenshot or pasted text). For a link, `scripts/listing_preview.py` reads its public preview with no login (works for Facebook Marketplace listing links and Vinted; not Leboncoin, which blocks robots). The skill identifies the exact model, checks it against your profile and your size on the brand chart, judges wear and a fair price from comparable listings, flags scam signs, and gives you a verdict, the questions to ask, a target offer and a ready-to-send message. Works any time, even outside a full session.
 
 Details: [`references/core/marketplaces.md`](references/core/marketplaces.md).
 
@@ -249,6 +249,7 @@ references/categories/*.md       category packs (sport, electronics, fashion, fu
 templates/buying-sheets.html     interactive buying sheets (fill the DATA object)
 scripts/setup-scrapling.sh       optional: installs Scrapling in ~/.venvs/scrapling
 scripts/shop_fetch.py            optional: reads shop pages that block simple fetching
+scripts/listing_preview.py       reads a listing link's public preview (title, photo, price, condition), standard library only
 LESSONS.md                       lessons from real uses
 CHANGELOG.md                     version history
 CONTRIBUTING.md                  how to suggest improvements or add a category

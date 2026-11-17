@@ -24,13 +24,13 @@ Ask the client which ones they use and how far they can travel for a pickup (or 
 - anibis: `https://www.anibis.ch/fr/q/<q>`
 - Kleinanzeigen: `https://www.kleinanzeigen.de/s-<q>/k0`
 - eBay: `https://www.ebay.fr/sch/i.html?_nkw=<q>` (used only: add `&LH_ItemCondition=3000`)
-- Facebook Marketplace: `https://www.facebook.com/marketplace/<city>/search/?query=<q>` [NC: needs the client's own account]
+- Facebook Marketplace: `https://www.facebook.com/marketplace/<city>/search/?query=<q>` (search shows no listings without an account: the client searches, the skill checks the listing links they send)
 
 In the report and buying sheets, give one link per item and marketplace, and tell the client which **saved-search alerts** to set (most marketplaces notify new listings for a saved search).
 
 ## Listing check (the client brings a listing)
 
-Triggered when the client sends a listing: a link, a screenshot, or pasted text. If the link cannot be read (login wall, robot block), ask for a screenshot or the text, never for their password.
+Triggered when the client sends a listing: a link, a screenshot, or pasted text. **For a link, first run** `python3 -I <skill>/scripts/listing_preview.py "<url>"`: it reads the public preview (title, description, photo, and price and condition when the site publishes them) with no login. Tested: Facebook Marketplace listing links and Vinted work; Leboncoin returns 403. If it fails, ask for a screenshot or the text, never for the client's password.
 
 1. **Identify** the exact model, version, year and size from the title, photos and description. Name what is missing.
 2. **Fit to the profile:** compare with the target specs from the profile and the category pack (flex, size, compatibility, use). Check the size on the brand's own chart (for shoes and boots: Mondopoint in cm). A seller's "fits like a size smaller or bigger" is their feeling, not a measurement: ask for a measurement.
