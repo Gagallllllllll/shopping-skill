@@ -4,6 +4,7 @@ What real uses of the skill taught us (with the category). One entry per lesson,
 
 Format: `- YYYY-MM-DD · <category> · <what happened> → <what changed in the skill>`
 
+- 2026-11-18 · all · The client asked for a daily search with notifications; in-session schedules expire, several Swiss and French city slugs fell back to the US on Facebook, and Vinted search could not be automated → marketplaces.md lists working slugs and the out-of-session daily-watch pattern (seen-list, alert on new only, Vinted saved search).
 - 2026-11-18 · sport · The client bought boots one size up after the board was chosen; nobody re-checked the board width, and the chosen size was rated for smaller boots → the sport pack now re-checks boot outsole length against the board width at the inserts (waist + stance²/sidecut radius) whenever boots change, and asks for the outsole length in cm.
 - 2026-11-18 · sport · Second-hand Burton bindings are often EST (Channel only) without saying so; a 4x2 board cannot take them → compatibility rule: name the binding mount version and ask for a baseplate photo.
 - 2026-11-18 · sport · A binding listing the client found turned out to have no discs → listing check now asks what hardware is included and lowers the target price by the replacement cost.

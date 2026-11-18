@@ -2,6 +2,9 @@
 
 All notable changes to this skill. Newest first. Versions up to 1.10.0 were published as the `sport` skill.
 
+## 2.4.5 (2026-11-18)
+- marketplaces.md: Facebook city slugs that fail or work; daily-watch pattern for new listings.
+
 ## 2.4.4 (2026-11-18)
 - Sport pack: boot outsole vs board width check at the inserts when boots change; Burton EST vs Re:Flex compatibility; missing discs lower the fair price.
 - Listing check: new completeness step.
