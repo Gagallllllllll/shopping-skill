@@ -37,6 +37,7 @@ Sports gear for any sport: snowboard, ski, running, cycling, climbing, surf, rac
 
 - Size from the brand's own chart, and choose the size where the client's weight or measurement sits **in the middle** of the range, not at the edge.
 - When charts, users and testers disagree, prefer a tester with a build close to the client's, then the brand chart, and show the conflict.
+- **Snowboard width vs boot:** whenever boots are chosen or change, ask the boot's outsole length in cm and compare it with the board width at the inserts (waist + stance²/sidecut radius, about +1 cm on a 156). Overhang per side ≈ (outsole × cos(angle) − width at inserts) / 2; up to about 2 cm per side is usually fine (recommendation). Reduced-footprint boots can fit one size narrower than their label.
 - Compatibility across a set: board inserts and binding discs, binding size and boot size, bike standards (wheel, axle, brake mount), shoe last and binding or pedal system.
 
 ## Trusted sources
@@ -53,7 +54,7 @@ Sports gear for any sport: snowboard, ski, running, cycling, climbing, surf, rac
 ## Second-hand checks
 
 - **Boards and skis:** base (deep scratches, repairs), edges (rust, cracks, dents), sidewalls, delamination, core damage near tips and tails, model year (sticker or serial).
-- **Bindings:** cracks on baseplate and highback, straps and ladders, ratchets, discs and screws included; quick-entry systems: confirm the exact version.
+- **Bindings:** cracks on baseplate and highback, straps and ladders, ratchets, discs and screws included; quick-entry systems: confirm the exact version; Burton EST fits Channel boards only, Re:Flex fits 4x2/4x4; missing discs or screws lower the fair price by the replacement cost.
 - **Boots:** label size (US and Mondo), liner pack-out and heat-moulding, sole glue, BOA dials and lace; boots are best bought new unless the fit is certain.
 - **Bikes:** frame cracks, drivetrain wear, proof of ownership.
 - Pay only inside the platform; ask for the model year and close-up photos before any offer.

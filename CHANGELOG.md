@@ -2,6 +2,11 @@
 
 All notable changes to this skill. Newest first. Versions up to 1.10.0 were published as the `sport` skill.
 
+## 2.4.4 (2026-11-18)
+- Sport pack: boot outsole vs board width check at the inserts when boots change; Burton EST vs Re:Flex compatibility; missing discs lower the fair price.
+- Listing check: new completeness step.
+- SKILL.md: returning clients re-confirm deal-breakers before a new deals pass.
+
 ## 2.4.3 (2026-11-17)
 - deals.md: for a model new this season, look for shop test units on marketplaces (private second-hand barely exists yet).
 - `shop_fetch.py` refuses a URL as its first argument (the output folder), which used to write pages into the current folder.

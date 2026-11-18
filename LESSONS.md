@@ -4,6 +4,10 @@ What real uses of the skill taught us (with the category). One entry per lesson,
 
 Format: `- YYYY-MM-DD · <category> · <what happened> → <what changed in the skill>`
 
+- 2026-11-18 · sport · The client bought boots one size up after the board was chosen; nobody re-checked the board width, and the chosen size was rated for smaller boots → the sport pack now re-checks boot outsole length against the board width at the inserts (waist + stance²/sidecut radius) whenever boots change, and asks for the outsole length in cm.
+- 2026-11-18 · sport · Second-hand Burton bindings are often EST (Channel only) without saying so; a 4x2 board cannot take them → compatibility rule: name the binding mount version and ask for a baseplate photo.
+- 2026-11-18 · sport · A binding listing the client found turned out to have no discs → listing check now asks what hardware is included and lowers the target price by the replacement cost.
+- 2026-11-18 · all · The client changed a key requirement (quick entry) after a strap-binding deals pass → re-ask entry type and other deal-breakers before any new deals pass in a returning session.
 - 2026-11-17 · sport · A binding new this season had no private second-hand offer anywhere (Vinted, Ricardo, Marketplace); the only used pair was a shop's test unit on Leboncoin, 28% under new. Facebook share links resolve to the listing but hide the price → deals.md points to shop test units for new-season models; ask the client for the price of a Facebook listing.
 - 2026-11-17 · sport · Facebook Marketplace returned nothing for model names around Lyon but many listings for generic queries, and an unknown city slug silently showed California → automatic warning and generic-query advice. Leboncoin and Vinted gave the best second-hand finds for the set.
 - 2026-11-17 · all · Facebook Marketplace search looked impossible without an account with plain requests, but rendering its public search page with a headless browser lists local listings → marketplace_search.py; a tool that loses on one task (Obscura on protected shops) can win on another (JavaScript pages): use each where it is better.

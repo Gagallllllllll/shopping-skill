@@ -38,10 +38,11 @@ Triggered when the client sends a listing: a link, a screenshot, or pasted text.
 
 1. **Identify** the exact model, version, year and size from the title, photos and description. Name what is missing.
 2. **Fit to the profile:** compare with the target specs from the profile and the category pack (flex, size, compatibility, use). Check the size on the brand's own chart (for shoes and boots: Mondopoint in cm). A seller's "fits like a size smaller or bigger" is their feeling, not a measurement: ask for a measurement.
-3. **Age and wear:** what the use so far means for this category (for example boot liners pack out, batteries wear, foam sags). Say how it changes the fit or value.
-4. **Fair price:** compare with 3 or more comparable listings and the new price (deals method). Give a target offer.
-5. **Risks:** scam signs from the category pack and the core rules (payment outside the platform, links sent in chat, pressure, price far below market).
-6. **Verdict:** good fit / only if ... / skip, with the reason, and a better option if one is known.
-7. **Questions and message:** the questions that settle what is missing, and a ready-to-send message in the seller's language (or the client's), questions first, offer second. For a local pickup: what to check on the spot (try on, test, measure), and pay at handover.
+3. **Completeness:** what is included (for bindings: discs and screws; for electronics: charger, box). Anything missing lowers the target price by its replacement cost.
+4. **Age and wear:** what the use so far means for this category (for example boot liners pack out, batteries wear, foam sags). Say how it changes the fit or value.
+5. **Fair price:** compare with 3 or more comparable listings and the new price (deals method). Give a target offer.
+6. **Risks:** scam signs from the category pack and the core rules (payment outside the platform, links sent in chat, pressure, price far below market).
+7. **Verdict:** good fit / only if ... / skip, with the reason, and a better option if one is known.
+8. **Questions and message:** the questions that settle what is missing, and a ready-to-send message in the seller's language (or the client's), questions first, offer second. For a local pickup: what to check on the spot (try on, test, measure), and pay at handover.
 
 Add good finds to the buying sheets as second-hand offers (status "verified" only for what the listing shows).
