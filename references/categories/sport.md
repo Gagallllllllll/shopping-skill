@@ -53,7 +53,7 @@ Sports gear for any sport: snowboard, ski, running, cycling, climbing, surf, rac
 
 ## Second-hand checks
 
-- **Boards and skis:** base (deep scratches, repairs), edges (rust, cracks, dents), sidewalls, delamination, core damage near tips and tails, model year (sticker or serial).
+- **Boards and skis:** base (deep scratches, repairs), edges (rust, cracks, dents), sidewalls, delamination, core damage near tips and tails, model year (sticker or serial). At a pickup: screw a binding bolt by hand into every insert (stripped threads), lay the board on a flat floor to see the camber or rocker is still even, and read the size printed on the board, not the seller's word.
 - **Bindings:** cracks on baseplate and highback, straps and ladders, ratchets, discs and screws included; quick-entry systems: confirm the exact version; Burton EST fits Channel boards only, Re:Flex fits 4x2/4x4; missing discs or screws lower the fair price by the replacement cost.
 - **Boots:** label size (US and Mondo), liner pack-out and heat-moulding, sole glue, BOA dials and lace; boots are best bought new unless the fit is certain.
 - **Bikes:** frame cracks, drivetrain wear, proof of ownership.

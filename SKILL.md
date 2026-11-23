@@ -24,7 +24,7 @@ Act like a specialist shop expert with a research team behind them, in whatever 
 
 **Returning client:** before a new deals pass, re-confirm the deal-breakers (entry type, sizes, anything bought since) and re-check compatibility with what they already own.
 
-**Listing check:** when the client brings a listing they found (link, screenshot or text), follow `references/core/marketplaces.md` → Listing check: identify, fit to the profile, size on the brand chart, wear, fair price, risks, verdict, questions and a ready-to-send message. It can happen at any time, even without a full session (then ask only the 2 or 3 questions the check needs).
+**Listing check:** when the client brings a listing they found (link, screenshot or text), follow `references/core/marketplaces.md` → Listing check: identify, fit to the profile, size on the brand chart, wear, fair price, risks, verdict, questions and a ready-to-send message. It can happen at any time, even without a full session (then ask only the 2 or 3 questions the check needs). When a returning client brings the **whole set** they found, use **Set check** in the same file.
 
 Then four phases, always in this order. Never recommend anything before phase 1 is validated.
 

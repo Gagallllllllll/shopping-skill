@@ -48,3 +48,12 @@ Triggered when the client sends a listing: a link, a screenshot, or pasted text.
 8. **Questions and message:** the questions that settle what is missing, and a ready-to-send message in the seller's language (or the client's), questions first, offer second. For a local pickup: what to check on the spot (try on, test, measure), and pay at handover.
 
 Add good finds to the buying sheets as second-hand offers (status "verified" only for what the listing shows).
+
+## Set check (the client brings the whole set)
+
+Triggered when a returning client lists the items they found or bought for a set, often with prices already agreed. Short answer, no new research unless a price looks off:
+
+1. **Per item:** price against the ceiling set earlier and against the new or sale price, fit to the profile, and what is still unconfirmed (size, year, included parts). A small overshoot on an item already bought is noted once, not re-argued.
+2. **Across the set:** compatibility between items (boot size vs binding size vs board width, mount pattern, flex balance), and the total in each currency as given; convert only with a rate checked today, otherwise give a range marked as an estimate.
+3. **What blocks payment:** the one or two points to settle before paying (usually the size of the item not yet bought, and parts to confirm), with a ready-to-send message.
+4. **Pickup checklist** from the category pack, and what to stop afterwards (watches, alerts).

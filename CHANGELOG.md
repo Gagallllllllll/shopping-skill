@@ -2,6 +2,11 @@
 
 All notable changes to this skill. Newest first. Versions up to 1.10.0 were published as the `sport` skill.
 
+## 2.5.0 (2026-11-23)
+- marketplaces.md: new Set check mode (returning client brings a whole set).
+- Sport pack: pickup checks for inserts, camber and the size printed on the board.
+- SKILL.md: points to Set check.
+
 ## 2.4.5 (2026-11-18)
 - marketplaces.md: Facebook city slugs that fail or work; daily-watch pattern for new listings.
 
